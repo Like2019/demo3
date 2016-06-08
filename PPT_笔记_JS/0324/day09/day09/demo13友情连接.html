@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	function goFriend(){
+		window.location.href = document.getElementById("friend").value;
+	}
+	
+</script>
+
+<body >
+	<form name="f">
+		<select id="friend" onchange="goFriend()">
+			<option value="#">==友情连接==</option>
+			<option value="http://www.beida.edu.cn">北大</option>
+			<option value="http://www.tsing.edu.cn">清华</option>
+			<option value="http://www.zheda.edu.cn">浙大</option>
+		</select>
+	</form>
+</body>
+</html>

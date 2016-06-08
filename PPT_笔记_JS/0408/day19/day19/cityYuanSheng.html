@@ -1,0 +1,71 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>欢迎注册1604的网站</title>
+	
+<script type="text/javascript" src="AJAXFeng.js"></script>
+<script type="text/javascript">
+var xhr = null;
+function getProvince(){
+	xhr = new XMLHttpRequest();
+	xhr.open("get","http://10.0.163.65:8080/web1604/county.jsp?isSheng=1",true);
+	xhr.onreadystatechange = tempProvince;
+	xhr.send(null);
+}
+
+function tempProvince(){
+	if(xhr.readyState==4 && xhr.status==200){
+		var provinceArr = eval("("+xhr.responseText+")");
+		showProvince(provinceArr);
+	}
+}
+
+//真正去显示省的内容
+function showProvince(provinceArr){
+	var str="";
+	for(var i=0;i<provinceArr.length;i++){
+		str = str+ "<option value='"+provinceArr[i].sid+"'>"+provinceArr[i].sName+"</option>";
+	}
+	document.getElementById("province").innerHTML = str;
+	getCity();
+}
+
+function getCity(){
+	var obj= document.getElementById("province");
+	xhr = new XMLHttpRequest();
+	xhr.open("get","http://10.0.163.65:8080/web1604/county.jsp?isSheng=2&shengId="+parseInt(obj.value),true);
+	xhr.onreadystatechange = tempCity;
+	xhr.send(null);
+}
+
+function tempCity(){
+	if(xhr.readyState==4 && xhr.status==200){
+		var cityArr = eval("("+xhr.responseText+")");
+		showCity(cityArr);
+	}
+}
+
+function showCity(cityArr){
+	var str="";
+	for(var i=0;i<cityArr.length;i++){
+		str = str+ "<option value='"+cityArr[i].cid+"'>"+cityArr[i].cName+"</option>";
+	}
+	document.getElementById("city").innerHTML = str;
+}
+
+</script>
+</head>
+
+<body onload="getProvince()">
+	<select id="province" onchange="getCity()">
+		<option value="001">北京1</option>
+		<option value="002">北京2</option>
+		<option value="003">北京3</option>
+	</select>省（直辖市）
+	<select id="city">
+	
+	</select>市（区）
+</body>
+
+</html>

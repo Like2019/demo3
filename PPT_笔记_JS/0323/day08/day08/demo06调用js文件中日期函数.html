@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+
+<script type="text/javascript" src="myDateLib.js"></script>
+
+<script type="text/javascript">
+
+	function test(){
+	   // var myDate = new Date();
+		//var str = convertDate(myDate);
+		//alert(str);
+		//document.write(str);
+		
+		//var t = getDaysFromMonth("2016","3");
+		//document.write(t);
+		
+		/*
+		var str = "2015-08-23";
+		var t = getDateByStr(str);
+		
+		//document.write(t);
+		document.write(t.getFullYear()+"/"+(t.getMonth()+1)+"/"+t.getDate()+"<br>");
+		document.write((t.getMonth()+1)+"/"+t.getDate()+"/"+t.getFullYear()+"<br>");
+		document.write(t.getDate()+"/"+(t.getMonth()+1)+"/"+t.getFullYear()+"<br>");
+		
+		var myDate = new Date();
+		document.write(myDate);
+		*/
+		
+		/*
+		var str = "2015-08-23";
+		var arr = str.split("-");
+		for(var i in arr){
+			document.write(arr[i]+"<br>");
+		}
+		*/
+		
+		//定义一个日期
+		//var date1 = new Date("2015-08-23");
+		//var d2 = new Date("2015-09-25");
+		
+		//1、从文本框获得输入的日期字符串类型，把它转换为日期类型
+		var date1 = new Date(document.f.d1.value);
+		var d2 = new Date(document.f.d2.value);
+		
+		//2、调用函数，计算两个日期的差
+		var num = differentDay(d2,date1);
+		
+		//3、显示
+		//document.write(num);
+		document.f.result.value = num;
+		
+	}
+	
+</script>
+<body>
+	<form name="f">
+		日期1：<input type="text" name="d1" style="width:500px"/><br>
+		日期2：<input type="text" name="d2" style="width:500px"/><br>
+		<input type="button" value="两个日期相差" onclick="test()"/>
+		相差<input type="text" name="result" style="width:500px" />天
+	</form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+		function calcY(){
+			//打印100以内 7的倍数
+			var i=1;
+			var count=0;
+			while(i<=100){//i=1 2 3   7
+				if(i%7==0){
+					document.write(i+"&nbsp;");
+				}
+				i++;			}
+		}
+		
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

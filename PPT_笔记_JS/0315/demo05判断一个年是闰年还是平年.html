@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	
+		function isRunOrPing(){
+			var year = parseInt(document.f.num.value);
+			//4年一润，百年不润;400年一润；
+			//两种情况：
+			//1、能被4整除，不能被100整除；1996 1992
+			//2、能被400整除；2000
+			
+			//逻辑运算符; 与&&  或||  非!
+			
+			if((year%4==0 && year%100!=0) || (year%400==0)){
+				alert("亲,"+year+"是闰年");
+			}else{
+				alert("亲,"+year+"是平年");
+			}
+			
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+		<input name="num1" type="text"/>
+		<input type="button" value="平年还是闰年" onclick="isRunOrPing()"/>
+		</form>
+	</body>
+	
+</html>

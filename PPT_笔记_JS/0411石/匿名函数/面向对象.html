@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<script type="text/javascript">		
+			/*
+			//普通创建对象的方式
+			var obj = new Object();//创建对象
+			//给对象添加属性和函数
+			//方式：对象.属性 对象.函数
+			obj.name = "zhangsan";
+			obj.age = 23;
+			obj.eat = function(){
+				alert("eatting");
+			}
+			obj.sleep = function() {
+				alert("slepping");
+			}
+			obj.getAge = function(){
+				return this.age;//this是obj对象
+			}
+			//调用方式：对象.属性 对象.函数
+			alert(obj.name);
+			alert(obj.age);
+			obj.eat();
+			obj.sleep();
+			alert(obj.getAge());
+			
+			//使用工厂模式创建对象
+			function createObject(name,age){
+				var obj = new Object();
+				obj.name = name;
+				obj.age = age;
+				obj.show = function() {
+					return this.name + this.age + "run。。。"
+				}
+				return obj;
+			}
+			var obj = createObject("zhangsan",23);
+			alert(obj.name);
+			alert(obj.show());
+			
+			var obj1 = createObject("lisi",25);
+			alert(obj1.name);
+			alert(obj1.show());
+			//判断某个对象是谁的对象
+			alert(obj instanceof Object);//若是返回true，否则 false
+			alert(obj1 instanceof Object);//若是返回true，否则 false
+			
+			alert(this);//window对象
+			//构造方法
+			function Person(name,age,sex) {
+				alert(this);
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+				this.introduce = function() {
+					return "name:" + name + ";age:" + age + ";sex:" + sex;
+				}
+			}
+			//如何调用构造函数：使用new关键字调用构造函数
+			var p1 = new Person("zhangsan",33,"man");
+			alert(p1.name);
+			alert(p1.age);
+			alert(p1.introduce());
+			*/
+			function createObject(name,age){
+				var obj = new Object();
+				alert(this);
+				obj.name = name;
+				obj.age = age;
+				obj.show = function() {
+					return this.name + this.age + "run。。。"
+				}
+				//return obj;
+			}
+			var obj = createObject("zhangsan",23);
+			
+		</script>
+	</head>
+
+
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+	<link id="cssId" type="text/css" rel="styleSheet" href="css/redSkin.css"/>
+
+<script type="text/javascript">
+
+function setSkin(){
+	//1、取出cookie字符串；
+	var cookieStr = document.cookie;
+	//userName=jzm&cssfile=red&t=jj
+	//2、在cookie字符中找到cssfile对应值；
+		//1）、找cssfile=的位置；
+		startIndex = cookieStr.indexOf("cssfile=");
+		//2)、根据位置找cssfile=后面的内容；
+		if(startIndex!=-1){
+		    //3)、找分号的位置，
+			var subStr = cookieStr.substring(startIndex+8);//cssfile=red;
+			var endIndex = subStr.indexOf("&");
+			if(endIndex==-1){
+				var cssfileStr= subStr.substring(8);
+			}else{
+				var cssfileStr= subStr.substring(8,endIndex);
+			}
+		}
+		
+	//3、把cssfile应用到link标签里的href属性。
+	document.getElementById("cssId").href="css/"+cssfileStr+"Skin.css";
+}
+
+function changeSkin(colorStr){
+	document.getElementById("cssId").href="css/"+colorStr+"Skin.css";
+	var date = new Date();
+	date.setTime(date.getTime()+5*24*3600*1000);
+	var str = "userName=jzm&cssfile="+colorStr+";expires="+date.toGMTString();
+	alert(str);
+	document.cookie = str;
+}
+</script>
+
+<body onload ="setSkin()">
+	<div id="layer" class="divClass1">hello div</div>
+	<form name="f">
+		<input type="button" value="穿上红色的皮肤" onclick="changeSkin('red')" />
+		<input type="button" value="穿上绿色的皮肤" onclick="changeSkin('green')" />
+	</form>
+</body>
+
+</html>

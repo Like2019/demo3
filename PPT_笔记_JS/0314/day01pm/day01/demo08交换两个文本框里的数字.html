@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		function change(){
+			//1、得到num1文本框的值；
+			var a = document.f.num1.value;//12
+			//2、得到num2文本框的值；
+			var b = document.f.num2.value;//13
+			//3、交换两个变量的值；
+			var c = b;//c = 13;b = 13;
+			b = a;//b = 12; a = 12;
+			a = c;//a = 13; 
+			//4、把交换后的值分别赋给对应的文本框；
+			document.f.num1.value = a;//13
+			document.f.num2.value = b;//12;
+		}
+	</script>
+	<body>
+		<form name="f">
+			<input name="num1" type="text" />
+			<input type="button" value="交换" onclick="change()" />
+			<input name="num2" type="text" />
+		</form>
+		
+	</body>
+	
+	
+
+</html>

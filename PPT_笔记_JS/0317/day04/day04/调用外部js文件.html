@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript" src="tools.js"></script>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+	function calcY(){
+		var year =  parseInt(document.f.year1.value);//2000
+		var month = parseInt(document.f.month1.value);//3
+		var date =  parseInt(document.f.date1.value);//5
+		
+		//先计算二月份的天数；
+		var second=28;
+		if(isRun(year)==true){
+			second = 29;
+		}
+		//定义变量，目的是保存最终的天数
+		var dayCount=0;
+		switch(month){
+			case 12:dayCount = dayCount+30;
+			case 11:dayCount = dayCount+31;
+			case 10:dayCount = dayCount+30;
+			case 9:dayCount = dayCount+31;
+			case 8:dayCount = dayCount+31;
+			case 7:dayCount = dayCount+30;
+			case 6:dayCount = dayCount+31;
+			case 5:dayCount = dayCount+30;
+			case 4:dayCount = dayCount+31;
+			case 3:dayCount = dayCount+second;
+			case 2:dayCount = dayCount+31;
+			case 1:break;
+			default:;
+		}
+		dayCount = dayCount+date;
+		document.f.result1.value = dayCount;
+	}
+		
+	</script>
+	<body>
+		<form name="f">
+		<input name="year1" type="text"/>年
+		<input name="month1" type="text"/>月
+		<input name="date1" type="text"/>日
+		<input type="button" value="计算天数" onclick="calcY()"/>
+		<input name="result1" type="text"/>
+		</form>
+	</body>
+	
+</html>

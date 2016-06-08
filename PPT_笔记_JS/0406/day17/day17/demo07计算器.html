@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	
+	 <style type=text/css>
+	*{margin:0; padding:0;}
+	.m{width:420px;height:500px;background:#993399;margin:0 auto;}
+	.b1{width:400px;height:50px;border:0;float:left;color:#000;}
+	.f{width:400px;height:400px;}
+	input{float:left;width:85px;height:90px;border:0;color:#fff;}
+	.e3{background:url(images/bg.bmp) center center;}
+	td{float:left;padding:8px 10px;}
+	input{font-size:35px}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var inputArr = document.getElementsByTagName("input");
+		for(var i=0;i<inputArr.length;i++){
+			inputArr[i].onkeydown = function(event){
+				if(document.all){
+					event.cancelBubble = true;
+				}else{
+					event.stopPropagation();
+				}
+			}
+		}
+	}
+	
+	//1、先能够输入数字（把多个数字连起来）
+	var num1 = "0";//第一个运算数 //12
+	var num2 = "";//第一个运算数 //51
+	var currOperator="";//当前的运算符；//+
+	var isFirst = true;//是否是给第一个数(num1)赋值；//false
+	
+	function inNumber(obj){
+		//需要确定当前是给num1赋值还是给num2赋值；
+		if(isFirst){
+			if(num1=="0"){
+				num1="";
+			}
+			num1 = num1+obj.value;
+			document.getElementById("numTxt").value = num1;
+		}else{
+			num2 = num2+obj.value;
+			document.getElementById("numTxt").value = num1+currOperator+num2;
+		}
+		document.getElementById("test").innerHTML = "num1="+num1+",num2="+num2;
+	}
+	
+	//输入操作符；
+	function inOperator(obj){
+		if(currOperator!="" && num2!="" && num1!=""){
+			calc();
+		}
+		//把运算符保存起来
+		currOperator = obj.value;
+		//改变外观（界面）
+		document.getElementById("numTxt").value = num1+currOperator;
+		isFirst = false;
+	}
+	
+	function calc(){
+		var result;
+		switch(currOperator){
+			case "+":result = parseFloat(num1)+parseFloat(num2);break;
+			case "-":result = parseFloat(num1)-parseFloat(num2);break;
+			case "*":result = parseFloat(num1)*parseFloat(num2);break;
+			case "/":result = parseFloat(num1)/parseFloat(num2);break;
+			default:;
+		}
+		//把运算结果赋给num1;
+		num1 = result;
+		//把num2清空；
+		num2 ="";
+		//把当前运算符清空；
+		currOperator = "";
+		document.getElementById("numTxt").value= num1;
+	}
+	
+	//把所有全局变量恢复成初始状态。
+	function clearText(){
+		document.getElementById("numTxt").value = "0";
+		num1 = "0";
+		num2 = "";
+		currOperator = "";
+		isFirst = true;
+	}
+	
+		
+	</script>
+   
+	<body onkeydown="show(event)">
+    <div class="m">
+		<form name="f">
+			<table  width="400px" height="100px">
+				<tr>
+					<td text-align="center">
+						<input id="numTxt" type="text" class="b1" name="txt"  value="0"/>
+					</td>
+				</tr>
+				<tr>
+					<td><input class="e3" type="button" value="7" onclick="inNumber(this)" /></td>
+                    <td><input class="e3"  type="button" value="8" onclick="inNumber(this)" /></td>
+                    <td><input  class="e3" type="button" value="9" onclick="inNumber(this)" /></td>
+                    <td><input class="e3"  type="button" value="+" onclick="inOperator(this)" /></td>
+				</tr> 
+                <tr>
+					<td><input  class="e3" type="button" value="4" onclick="inNumber(this)" /></td>
+                    <td><input  class="e3" type="button" value="5" onclick="inNumber(this)" /></td>
+                    <td><input  class="e3" type="button" value="6" onclick="inNumber(this)" /></td>
+                    <td><input  class="e3" type="button" value="-" onclick="inOperator(this)" /></td>
+				</tr>
+                <tr>
+					<td><input class="e3"  type="button" value="1" onclick="inNumber(this)" /></td>
+                    <td><input  class="e3" type="button" value="2" onclick="inNumber(this)" /></td>
+                    <td><input  class="e3" type="button" value="3" onclick="inNumber(this)" /></td>
+                    <td><input  class="e3" type="button" value="*" onclick="inOperator(this)" /></td>
+				</tr>
+                <tr>
+					<td><input  class="e3" type="button" value="0" onclick="inNumber(this)" /></td>
+                    <td><input  class="e3"  type="button" value="c" onclick="clearText()" /></td>
+                    <td><input  class="e3" type="button" value="=" onclick="calc()" /></td>
+                    <td><input class="e3"  type="button" value="/" onclick="inOperator(this)" /></td>
+				</tr>
+			</table>
+		</form>
+     </div>
+	 <span id="test"></span>
+	</body>
+</html>

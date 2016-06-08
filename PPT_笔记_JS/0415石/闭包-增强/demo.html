@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		/*
+			var user = "the window";
+			var obj = {
+				user:"zhangsan",
+				getUser:function() {
+					var that = this;
+					return function() {
+						return that.user;
+					}
+				}
+			};
+			alert(obj.getUser()());
+		*/
+		/*
+		function box() {
+			(function(){
+				for(var i=0;i<5;i++){
+					//按理封闭的区间
+				}
+			})();
+			
+			alert(i);
+			var i;
+			alert(i);
+		}		
+		box();*/
+		/*
+		//用户管理
+		(function() {
+			var i = 2;
+			alert(i);
+		})();
+		
+		//商品管理
+		(function() {
+			var i = 5;
+			alert(i);
+		})();
+		*/
+		function Person() {
+			var name="zhangsan";//私有变量
+			this.getName = function() {
+				return name;
+			}
+		}
+		  
+		var person = new Person();
+		alert(person.getName());
+		alert(person.name);
+		
+		
+		</script>
+	</head>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<style type="text/css">
+			.aaa{
+				width:100px;
+				height:200px;
+				background-color:#ff0000;
+			}
+			
+			.bbb{
+				width:200px;
+				height:100px;
+				background-color:#00ff00;
+			}
+		</style>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+	<script type="text/javascript">
+		function test(){
+			$("#t").className="bbb";
+		}
+	</script>
+	</head>
+
+	<body>
+		
+		<form id="formId" action="" method="get">
+			<input type="button" value="改变样式" onclick="test()"/>
+		</form>
+		<div id="t" class="aaa">
+		</div>
+		
+	</body>
+
+</html>

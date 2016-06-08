@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<style type="text/css">
+#divId{
+	width:200px;background-color:#f00;
+}
+</style>
+<script type="text/javascript" src="tools.js"></script>
+<script type="text/javascript">
+	function addStu(){
+		//1、获得文本框的内容
+		var name = document.getElementById("nameText").value;
+		var age = document.getElementById("ageText").value;
+		//2、获得显示学生信息表格
+		var stuInfo = document.getElementById("stuInfo").childNodes[0];
+		
+		//3、创建一个tr，
+		var trObj = document.createElement("tr");
+		
+		//4、创建两个td（文本内容分别是name和age）
+		var tdObjName = document.createElement("td");
+		var tdObjAge = document.createElement("td");
+		
+		var nameTextNode = document.createTextNode(name);
+		var ageTextNode = document.createTextNode(age);
+		
+		tdObjName.appendChild(nameTextNode);
+		tdObjAge.appendChild(ageTextNode);
+		
+		//5、把td添加到tr里；
+		trObj.appendChild(tdObjName);
+		trObj.appendChild(tdObjAge);
+		
+		//6、把tr放在table；
+		stuInfo.appendChild(trObj);
+	}
+	
+	//删除最后一个学生(即就是删除表格的最后一个tr);
+	function deleteStu(){
+		if(window.confirm("亲，您确认要删除吗？")==false){
+			return;
+		}
+		var t = document.getElementById("stuInfo").childNodes[0];
+		//先删除多余的文本节点（空白节点）；
+		var childArr = removeTextNode(t.childNodes);
+		if(childArr.length==1){
+			alert("亲，没有学生可删除了");
+		}else{
+			//找到最后一行；
+			var endTr = childArr[childArr.length-1];
+			//删除；
+			t.removeChild(endTr);
+		}
+	}
+
+</script>
+<body>
+	<div>
+		姓名：<input id="nameText" type="text" /><br>
+		年龄：<input id="ageText" type="text" />
+		<input type="button" value="添加学生" onclick="addStu()"/>
+		<input type="button" value="删除最后一个学生" onclick="deleteStu()"/>
+	</div>
+	<div id="divId">
+		<table id="stuInfo" width="200" border="1"><tr>
+			<td>姓名</td>
+			<td>年龄</td>
+			<td>删除</td>
+		  </tr>
+		  <tr>
+			<td>江泽民</td>
+			<td>50</td>
+			<td><a href="#" onclick="deleteStuByNo()">删除</a></td>
+		  </tr>
+		</table>
+	</div>
+
+</body>
+</html>

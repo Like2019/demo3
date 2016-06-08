@@ -1,0 +1,1 @@
+navigator.userAgent; 可以判断浏览器类型。

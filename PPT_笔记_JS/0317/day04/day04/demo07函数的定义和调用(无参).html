@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+		<script type="text/javascript">
+			function loadUserFunc(){
+				var n = 20;
+				var m = 30;
+				var sum = n+m;
+				document.write(sum);
+			}
+			
+		</script>
+	<body>
+		<form name="f">
+		<input type="button" value="调用自定义函数" onclick="loadUserFunc()"/>
+		
+		<input type="button" value="调用内置函数" onclick="Math.random()"/>
+		</form>
+	</body>
+	
+</html>

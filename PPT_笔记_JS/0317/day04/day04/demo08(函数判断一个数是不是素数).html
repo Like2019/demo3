@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//已知数，判断它是不是素数；
+		function isSuShu(num){
+			var s=true;
+			for(var i=2;i<=num-1;i++){
+				if(num%i==0){
+					s = false;
+					break;
+				}
+			}
+			return s;
+			
+			if(s== true){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		
+		function test(){
+			if(isSuShu(25)==true){
+				alert(25+"素");
+			}else{
+				alert(25+"不素");
+			}
+		}
+		
+	</script>
+	<body>
+		
+		<input type="button" value="点我" onclick="test()"/>
+	</body>
+	
+</html>

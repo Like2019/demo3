@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		
+function test(){
+	var s1 = "what are you 弄啥哩";
+	
+	document.write("长度："+s1.length+"<br>");
+	
+	document.write("charAt："+s1.charAt(3)+"<br>");
+	////获取下标为3的字符的编码
+	document.write("charCodeAt："+s1.charCodeAt(2)+"<br>");
+	
+	 document.write(String.fromCharCode(97)); //编码转换成字符
+
+	 
+}
+
+/*
+ASCII：把键盘上的每一个键都对应一个数字；ASCII有了后，计算机就认识了英文。
+
+a  97  -->二进制
+b  98
+c  99
+d  100
+*/
+
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="冒泡排序" onclick="test()"/>
+		 </form>
+	</body>
+</html>

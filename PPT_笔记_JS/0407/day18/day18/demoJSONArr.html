@@ -1,0 +1,76 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>欢迎注册1604的网站</title>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+<script type="text/javascript">
+
+function test(){
+	//定义了JSON格式的数据(其实就是对象)
+	var student = {
+		"name":"汪峰",
+		"age":35,
+		"sex":"男"
+	}
+	alert(typeof(student));
+	
+}
+
+function show(){
+	//定义了JSON格式的数据(其实就是对象)
+	var studentArr = [{
+		"name":"汪峰",
+		"age":35,
+		"sex":"男"
+	},
+	{
+		"name":"章子怡",
+		"age":30,
+		"sex":"女"
+	},
+	{
+		"name":"李莫愁",
+		"age":32,
+		"sex":"女"
+	}
+	]
+	
+	for(var i=0;i<studentArr.length;i++){
+		var tr = document.createElement("tr");
+		var tdName = document.createElement("td");
+		var tdSex = document.createElement("td");
+		var tdAge = document.createElement("td");
+		
+		tdName.innerHTML = studentArr[i].name;
+		 tdSex.innerHTML = studentArr[i].sex;
+		 tdAge.innerHTML = studentArr[i].age;
+
+		tr.appendChild(tdName);
+		tr.appendChild(tdSex);
+		tr.appendChild(tdAge);
+		
+		//得到tbody;
+		var tbody = document.getElementById("t").childNodes[0];
+		tbody.appendChild(tr);
+		
+	
+	}
+	
+}
+
+</script>
+</head>
+
+<body>
+<input type="button" value="测试" onclick="show()"/>
+<table id="t"><tr>
+		<td>姓名</td>
+		<td>性别</td>
+		<td>年龄</td>
+	</tr>
+</table>
+</body>
+
+</html>

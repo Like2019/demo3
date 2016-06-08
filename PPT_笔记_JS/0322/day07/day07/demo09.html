@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+	/*
+	alert(String.charCodeAt("z"));
+	alert(String.charCodeAt("A"));
+	alert(String.charCodeAt("Z")); 
+	
+	*/
+	
+	var str = "What are you 弄啥哩";
+	//定义两个变量（计数器）
+	var lowerCount = 0;
+	var upperCount = 0;
+	
+	for(var i=0;i<str.length;i++){
+		//拿出对应的字符；
+		var currChar = str.charCodeAt(i);//str.charCodeAt(0):取出str字符串中第一个字符的编码；
+		if(currChar>=97 && currChar<=122){
+			lowerCount++;
+		}else if(currChar>=65 && currChar<=90){
+			upperCount++;
+		}
+	}
+
+	document.write("亲，小写字母一共"+lowerCount+"个<br>");
+	document.write("亲，大写字母一共"+upperCount+"个<br>");
+	
+	
+	
+</script>
+<body>
+</body>
+</html>

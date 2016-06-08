@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+	<link id="cssId" type="text/css" rel="styleSheet" href="css/redSkin.css"/>
+
+	<script type="text/javascript">
+function getCookie(){
+	var cookieStr = decodeURIComponent(document.cookie);
+	alert(cookieStr);
+}
+function saveCookie1(){
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate()+5);//加5天
+	document.cookie = encodeURIComponent("name=江泽民;expires="+exdate.toGMTString());
+}
+function saveCookie2(){
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate()+5);//加5天
+	document.cookie = encodeURIComponent("name=胡锦涛;expires="+exdate.toGMTString());
+}
+
+function deleteCookie(){
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate()-5);//加5天
+	document.cookie = encodeURIComponent("name=胡锦涛;expires="+exdate.toGMTString());
+}
+</script>
+<body onload ="getCookie()">
+	<div id="layer" class="divClass1">hello div</div>
+	<form name="f">
+		<input type="button" value="保存cookie1" onclick="saveCookie1()" />
+		<input type="button" value="保存cookie2" onclick="saveCookie2()" />
+		<input type="button" value="删除cookie" onclick="deleteCookie()" />
+	</form>
+</body>
+
+</html>

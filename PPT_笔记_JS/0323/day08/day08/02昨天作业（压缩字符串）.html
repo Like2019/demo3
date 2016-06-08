@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	function zip(){
+	
+		//aaaabbbbbbbccdaaaaa
+		var oldStr = document.f.txt.value;
+		var resultStr = "";//a4b7
+		
+		//当期字符
+		var currChar = oldStr.charAt(0);//a
+		var count = 1;//记录个数；//1   
+		
+		for(var i=1;i<oldStr.length;i++){
+			if(oldStr.charAt(i)==currChar){
+				count++; //7 
+			}else{
+				//1、把currChar和count放入到resultStr中；
+				resultStr = resultStr+currChar+count;//把统计的结果补到字符串后面
+				//2、给currChar和count重新赋值；
+				currChar = oldStr.charAt(i);  //b
+				count=1;
+			}
+		}
+		
+		resultStr = resultStr+currChar+count;////把统计的结果补到字符串后面
+		document.f.resultTxt.value = resultStr;
+	}
+
+</script>
+<body>
+	<form name="f">
+		<input type="text" name="txt" />
+		<input type="button" value="压缩后的结果" onclick="zip()"/>
+		<input type="text" name="resultTxt" />
+	</form>
+
+
+</body>
+</html>

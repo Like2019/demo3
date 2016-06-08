@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+<style type="text/css">
+	#parent{
+		position:relative;
+		left:100px;
+		top:20px;
+		width:200px;
+		height:200px;
+		background-color:#0f0;
+	}
+	#t{
+		position:relative;
+		left:500px;
+		top:300px;
+		width:200px;
+		height:200px;
+		background-color:#f00;
+	}
+</style>
+<script type="text/javascript" language="JavaScript">
+  function showButton(event) {
+	 var evt = event?event:window.event;
+	 alert(evt.button);
+	 
+	 if(document.all){//IE
+		switch(evt.button){
+			case 1:alert("亲，左键");break;
+			case 4:alert("亲，中键");break;
+			case 2:alert("亲，右键");break;
+			default:;
+		}
+	 }else{
+		switch(evt.button){
+			case 0:alert("亲，左键");break;
+			case 1:alert("亲，中键");break;
+			case 2:alert("亲，右键");break;
+			default:;
+		}
+	 }
+	 
+	 //alert("evt.altKey="+evt.altKey);
+	 
+	 if(evt.altKey==true){
+		alert("亲，您还按了alt键");
+	 }
+  }
+  
+</script>
+</head>
+<body  style="margin:0px;" >
+	<input type="button" value="测试" onmousedown="showButton(event)"/>
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+	<br>1<br>2<br>3
+</body>  
+</html>

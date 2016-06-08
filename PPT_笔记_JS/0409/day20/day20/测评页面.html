@@ -1,0 +1,63 @@
+
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>无标题文档</title> 
+<style>
+#div1{ width:100px; height:100px; background:red; position:absolute; left:0; top:50px;} 
+</style> 
+<script>
+	function calcScore(){
+		var score=0;
+		var likeArr = document.getElementsByName("like");
+		for(var i=0;i<likeArr.length;i++){
+			if(likeArr[i].checked==true){
+				score+= parseFloat(likeArr[i].value);
+			}
+		}
+		
+		var sportsArr = document.getElementsByName("sports");
+		for(var i=0;i<sportsArr.length;i++){
+			if(sportsArr[i].checked==true){
+				score+=parseFloat(sportsArr[i].value);
+			}
+		}
+		
+		var meatArr = document.getElementsByName("meat");
+		for(var i=0;i<meatArr.length;i++){
+			if(meatArr[i].checked==true){
+				score+=parseFloat(meatArr[i].value);
+			}
+		}
+		
+		alert("分数为："+score);
+		//document.f.like.value;
+	
+	}
+	
+
+</script> 
+</head> 
+<body> 
+	<form name="f">
+		测评项：<br>
+		1、喜欢吃什么水果?
+		A、<input type="radio" name="like" value="10" checked="checked" />苹果
+		B、<input type="radio" name="like" value="7.5" />草莓
+		C、<input type="radio" name="like" value="2.5" />芒果
+		D、<input type="radio" name="like" value="1" />荔枝<br>
+		2、喜欢什么运动?
+		A、<input type="radio" name="sports" value="10" />篮球
+		B、<input type="radio" name="sports" value="7.5" />足球
+		C、<input type="radio" name="sports" value="2.5" />瑜伽
+		D、<input type="radio" name="sports" value="1" />登山<br>
+		3、喜欢吃啥肉夹馍?
+		A、<input type="radio" name="meat" value="10" />牛肉
+		B、<input type="radio" name="meat" value="7.5" />鸡肉
+		C、<input type="radio" name="meat" value="2.5" />菜
+		D、<input type="radio" name="meat" value="1" />凉皮
+	
+		<input type="button" value="提交" onclick="calcScore()"/>
+	</form>
+</body> 
+</html>

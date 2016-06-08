@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		
+function test(){
+	var s1 = "what are you 弄啥哩";
+	var s2 = new String("what are you 弄啥哩");
+	 
+	document.write(s1+"<br>"); //输出的是 string 
+	document.write(s2+"<br>"); //输出的 object
+	document.write(typeof(s1)+"<br>"); //输出的是 string 
+	document.write(typeof(s2)+"<br>"); //输出的 object
+}
+		
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="冒泡排序" onclick="test()"/>
+		 </form>
+	</body>
+</html>

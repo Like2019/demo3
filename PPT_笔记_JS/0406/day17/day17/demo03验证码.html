@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+var str = "";
+function showCheckMa(){	
+	var arr = new Array("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+	str = "";
+	for(var i=0;i<4;i++){
+		//随机下标，随机数范围是：0-(arr.length-1)
+		var index = parseInt(Math.random()*arr.length);
+		str = str+arr[index];
+	}
+	document.getElementById("txtId").innerHTML = str;
+}
+
+function checkCheckMa(){
+	//1、得到用户输入的验证码；
+	var userCheckMa = document.getElementById("checkMaId").value;
+	//2、和随机取出来的验证码对比；
+	//var reg = new RegExp(userCheckMa,);
+	if(userCheckMa!=str){
+		document.getElementById("showCheckResult").innerHTML="验证码有误";
+	}else{
+		document.getElementById("showCheckResult").innerHTML="验证码正确";
+	}
+}
+	
+</script>
+<body onload="showCheckMa()">
+验证码：<input type="text" id="checkMaId" onblur="checkCheckMa()"><span id="txtId"></span><br>
+<span id="showCheckResult"></span>
+<input type="button" value="再来一张" onclick="showCheckMa()"/>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<style type="text/css">
+#box{
+	width:200px;background-color:#f00;
+}
+</style>
+<script type="text/javascript">
+function deleteNode(){
+	//得到要删除的节点
+	var box = document.getElementById("box");
+	//找到它的父亲节点
+	var body = document.body;
+	//用父亲节点调用removeChild, 删除它。
+	body.removeChild(box);
+}
+</script>
+
+<body>
+	<div id="box" class="divClass1" name="pl">
+		hello div
+	</div>
+	<form name="f">
+		<input type="button" value="删除节点" onclick="deleteNode()" />
+	</form>
+
+</body>
+</html>

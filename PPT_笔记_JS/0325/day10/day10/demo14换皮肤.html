@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+	<link id="cssId" type="text/css" rel="styleSheet" href="css/redSkin.css"/>
+
+	<script type="text/javascript">
+		function changeRed(){
+			document.getElementById("cssId").href="css/redSkin.css"
+		}
+		function changeGreen(){
+			document.getElementById("cssId").href="css/greenSkin.css"
+		}
+	</script>
+	<body>
+		<div id="layer" class="divClass1">hello div</div>
+		<form name="f">
+			<input type="button" value="穿上红色的皮肤" onclick="changeRed()" />
+			<input type="button" value="穿上绿色的皮肤" onclick="changeGreen()" />
+		</form>
+	</body>
+
+</html>

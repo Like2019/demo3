@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+
+	//定义个数字（0-9，"a--z","A--Z"）
+	var arr = new Array();
+	//通过循环，给数组赋值
+	for(var i=0;i<10;i++){
+		arr.push(i);
+	}
+	
+	for(var i=97;i<=122;i++){
+		arr.push(String.fromCharCode(i));
+	}
+	for(var i=65;i<=90;i++){
+		arr.push(String.fromCharCode(i));
+	}
+	/*
+	for(var i=String.charCodeAt("a");i<=String.charCodeAt("z");i++){
+		arr.push(String.fromCharCode(i));
+	}
+	*/
+	document.write(arr+"<br>");
+	for(var i=0;i<6;i++){
+		//随机下标，随机数范围是：0-(arr.length-1)
+		var index = parseInt(Math.random()*arr.length);
+		document.write(arr[index]);
+	}
+	
+	
+</script>
+<body>
+</body>
+</html>

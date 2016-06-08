@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	  	//求Sn=a+aa+aaa+……+aa……a之值,其中a是一个数字,n是文本框输入的
+		// a = 2; n=5;
+		// 2+22+222+2222+22222;
+		/*
+		   2
+		   22    = 2*10+2; = 上一个加数*10+a；
+		   222   = 22*10+2;= 上一个加数*10+a；
+		   2222  = 222*10+2;= 上一个加数*10+a；
+		   22222 = 2222*10+2; = 上一个加数*10+a；
+		  */ 
+		function calcY(){
+			var a = parseInt(document.f.a.value);
+			var n = parseInt(document.f.n.value);
+			var sum=0;
+			var item = 0;
+		
+			for(var i=1;i<=n;i++){
+				item= item*10+a; //item =2   22
+				//做加法
+				sum = sum+item; // 2
+			}
+			document.write(sum);
+		}
+		
+		
+		
+	</script>
+	<body>
+		<form name="f">
+			每位上的数字是：<input type="text" name="a" />
+			一共多少项：<input type="text" name="n" />
+			<input type="button" value="打印" onclick="calcY()"/>
+		</form>
+	</body>
+	
+</html>

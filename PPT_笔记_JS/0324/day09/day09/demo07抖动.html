@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	var myInterval;
+	var count = 0;
+	var global_direction=0;//0：表示向下移动；1：右；2：上；3：左
+	function goStep(){
+		switch(global_direction){
+			case 0:window.moveBy(0,10);break;//下b
+			case 1:window.moveBy(10,0);break;///右
+			case 2:window.moveBy(0,-10);break;///上
+			case 3:window.moveBy(-10,0);break;///左
+			default:;
+		}
+		global_direction++;
+		if(global_direction>3){
+			global_direction = 0;
+		}
+		count++;
+		if(count>=50){
+			clearInterval(myInterval);
+			count=0;
+		}
+	}
+	
+	function startDou(){
+		myInterval = setInterval('goStep()',20);
+	}
+	
+</script>
+
+<body onload="">
+	<form name="f">
+		<input type="button" value="让窗口抖动" onclick="startDou()"/>
+	</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//写了一段代码，起了名字叫show();
+		function show(){
+			//1、得到num1文本框的值；n1是javascript语言里的变量，num1是html中文本框的名字；
+			var n1 = document.f.num1.value;
+			//2、得到num2文本框的值；
+			var n2 = document.f.num2.value;
+			//3、做加法；驼峰命名：（第一个单词全部小写，从第二个单词开始，每个单词的首字母大写）
+			var r = parseInt(n1)+parseInt(n2);
+			//4、把加的结果赋给result文本框
+			document.f.result.value = r;
+		}
+		
+	</script>
+	<body>
+		<form name="f" >
+			<input name="num1" type="text"  />+
+			<input name="num2" type="text" />
+			<input type="button" value="=" onclick="show()"/>
+			<input name="result" type="text" />
+		</form>
+	</body>
+	
+	
+
+</html>

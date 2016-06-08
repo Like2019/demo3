@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	
+	</head>
+	<script type="text/javascript">
+		function show(){
+		//通过javascript得到html文本框的内容	//document代表整个文档；f是form表单的名字；num1是文本框的名字，value是文本框的值；
+			alert(document.add.num1.value);
+		}
+	</script>
+	<body>
+		<form name="add" >
+			<input name="num1" type="text"/>
+			<input type="button" value="通过javascript得到html文本框的内容" onclick="show()"/>
+			<!--onClick 是点击按钮的意思，onClick后面的show()就是javascript中的show()-->
+		</form>
+	</body>
+
+</html>

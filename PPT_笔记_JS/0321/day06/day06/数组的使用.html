@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+	
+		function test(){
+			//一次性定义了3个变量，并且分别赋值为10,20,30;
+			var array = [10,20,30];//一次性定义了3个变量，并且分别赋值为10,20,30; array是数组名，[] 照着写，
+			
+			/*
+			alert(array[0]);//数组的第一个元素；0是下标，索引，其实就是序号
+			alert(array[1]);
+			alert(array[2]);
+			*/
+			
+			//下标可以是表达式（变量）；
+			/*
+			var index= 2;
+			alert(array[index]);
+			var index= 2;
+			alert(array[index-1]);
+			*/
+			
+			//遍历数组的元素（把数组的每个元素访问一遍）；
+			/*
+			for(var i=0;i<=2;i++){
+				document.write(array[i]+"<br>");
+			}
+			*/
+			
+			//length属性:能够得到数组的元素个数；
+			/*
+			for(var i=0;i<array.length;i++){
+				document.write(array[i]+"<br>");
+			}
+			*/
+			
+			//数组的赋值
+			/*
+			array[0]=250;
+			for(var i=0;i<array.length;i++){
+				document.write(array[i]+"<br>");
+			}
+			*/
+			//让数组每个元素的值，变成它对应下标的平方；
+			/*
+			for(var i=0;i<array.length;i++){
+				array[i]=i*i;
+			}
+			*/
+			//让数组每个元素的值，是个随机数；
+			for(var i=0;i<array.length;i++){
+				array[i]=parseInt(Math.random()*10);
+			}
+			
+			/*
+			for(var i=0;i<array.length;i++){
+				document.write(array[i]+"<br>");
+			}
+			*/
+			
+			//for each循环；for in循环；
+			for(var i in array){
+				document.write(array[i]+"<br>");
+			}
+			
+		}
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="测试" onclick="test()"/>
+		 </form>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>倒计时</title>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+<script type="text/javascript">
+function changeBg()
+{
+	if(document.getElementById("bgSelect").value!="")
+	{
+		document.body.style.backgroundColor=
+		document.getElementById("bgSelect").value;
+	}
+}
+
+function test(){
+	alert("文本框的内容被改变了");
+}
+</script>
+</head>
+
+<body>
+
+<select id="bgSelect" onChange="changeBg()">
+  <option value="">---------</option>
+  <option value="#FFCCFF">粉红浪漫</option>
+  <option value="#6699FF">蓝色忧郁</option>
+  <option value="#9966FF">紫色诱惑</option>
+  <option value="#009966">绿色环保</option>
+</select>
+<input type="text" onChange="test()"/>
+	
+</body>
+
+</html>

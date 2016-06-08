@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<meta charset = "utf-8"/>
+</head>
+
+<script type="text/javascript">
+	function changeCheck(){
+		var chk = document.getElementById("chk");
+		//alert(chk.checked);
+		if(chk.checked == true){
+			chk.checked = false;
+		}else{
+			chk.checked = true;
+		}
+	}
+	
+</script>
+
+<body >
+		
+		<input id="chk" type="checkbox" />
+		<input type="button"  value="测试" onclick="changeCheck()"/>
+		
+</body>
+</html>

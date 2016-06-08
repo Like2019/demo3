@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+
+<script type="text/javascript" language="JavaScript">
+
+function speedSend(event){
+	//判断是不是按下了ctrl和回车键，回车键的码是13；
+	if(event.ctrlKey== true && event.keyCode ==13){//13是回车键的吗
+		sendInfo();
+	}
+}
+
+//发送信息；
+function sendInfo(){
+	//获得文本框标签对象(这是发送消息的文本框)
+	var info = document.getElementById("info");
+	//获得文本域标签对象（这是显示消息的文本域）
+	var allInfo = document.getElementById("allInfo");
+	//把新的消息（文本框的消息）补充到原始消息的后面
+	allInfo.value = allInfo.value+info.value+"\n"; // \n 是回车
+	//清空文本框（发送消息的文本框）的内容
+	info.value = "";
+	//让文本域的滚动条滚动到最下面
+	allInfo.scrollTop = allInfo.scrollHeight;
+	//让文本框获得焦点；
+	info.focus();
+}
+
+
+</script>
+</head>
+<body >
+	<textarea id="allInfo" style="width:400px;height:100px"></textarea><br>
+	<input type="text" id="info"style="width:300px" onkeydown="speedSend(event)" />
+	<input type="button" value="发送" style="width:80px" onclick="sendInfo()"/>
+</body>
+</html>
+
+
+
+
+
+
+

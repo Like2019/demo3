@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+<style type="text/css">
+#imgId{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+</style>
+</head>
+<script type="text/javascript">
+	function fllowMe(event){
+		var evt = event?event:window.event;
+		var img = document.getElementById("imgId");
+		window.status = evt.clientX+","+evt.clientY;
+		img.style.left = evt.clientX+100;
+		img.style.top = evt.clientY+50;
+	}
+</script>
+
+<body style="height:800px" onmousemove="fllowMe(event)">
+	<img id="imgId" src="img/mn.jpg"/>
+	
+</body>
+</html>

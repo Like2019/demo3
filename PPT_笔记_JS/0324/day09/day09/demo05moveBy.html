@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	function goStep(){
+		window.moveBy(1,1);
+	}
+	
+</script>
+
+<body onload="setInterval('goStep()',10);">
+	<form name="f">
+		<input type="button" value="让窗口走一下" onclick="goStep()"/>
+	</form>
+</body>
+</html>

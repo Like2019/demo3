@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+
+</head>
+<script type="text/javascript" src="1604jQuery.js"></script>
+<script type="text/javascript">
+	function test(event){
+		if(window.confirm("你确认要走吗？")){
+			return true;
+		}else{
+			stopBubble(event);
+		}
+	}
+</script>
+
+<body >
+	<a href="test.html" onclick="test(event)">走</a>
+</body>
+
+
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//getElementById("imgId")  :通过id获得标签；
+		//document.f.txt  :通过name获得标签
+		function showImage(ord){
+			switch(ord){
+				case 1:document.getElementById("imgId").src="images/mn01.jpg";break;
+				case 2:document.getElementById("imgId").src="images/mn02.png";break;
+				case 3:document.getElementById("imgId").src="images/tigger1.jpg";break;
+				case 4:document.getElementById("imgId").src="images/tigger2.jpg";break;
+				default:alert("这个你也搞出来！");
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+			<input type="button" value="&nbsp;1&nbsp;" onclick="showImage(1)" />
+			<input type="button" value="&nbsp;2&nbsp;" onclick="showImage(2)"  />
+			<input type="button" value="&nbsp;3&nbsp;" onclick="showImage(3)"  />
+			<input type="button" value="&nbsp;4&nbsp;"  onclick="showImage(4)" />
+			<img  id="imgId" src="images/mn01.jpg"/>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+
+1、javascript：编程语言
+	变量，数据类型，运算符，选择（if，switch），循环（while）
+
+2、HTML:标记语言，带格式的展示性的语言
+
+	
+
+	document.write("hello");//把hello打印到网页上。
+
+	var num = 2;
+	document.write("hello"+num);
+
+
+	document.write("<img src='' />"); 把<img src='' /> 打印到网页，由浏览器把这句话解释为图片元素。
+
+	document.write("<option></option>");
+
+	var i = 3;
+	document.write("<option>"+i+"</option>");
+
+	

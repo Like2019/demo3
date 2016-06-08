@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+		//进度条；
+		function test(){
+			//document.getElementById("d").style.width="300px";
+			setInterval("jindutiao()",100);
+		}
+		
+		function jindutiao(){
+			var width = parseInt(document.getElementById("d").style.width)+2;
+			if(width>200){
+				return;
+			}
+			document.getElementById("d").style.width = width+"px";
+			document.f.txt.value=width/2+"%"
+		}
+		
+	</script>
+   
+	<body>
+	<form name="f">
+    <div class="m" style="width:200px; height:25px;border:1px solid #000">
+		 <div id="d" class="m" style="background-color:#f00; width:0px; height:25px;">
+		</div>
+    </div>
+	 <input type="text" name="txt"/>
+	 <input type="button" value="测试" onclick="test()"/>
+	 </form>
+	</body>
+</html>

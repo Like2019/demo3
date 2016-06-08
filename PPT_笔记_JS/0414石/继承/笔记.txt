@@ -1,0 +1,88 @@
+继承
+1.引出
+/*
+function tiger() {
+	this.name="tiger1";
+	this.clr = "白色";
+	this.tyle="东北虎";
+}
+
+function lion() {
+	this.name="lion1";
+	this.clr = "黄色";
+	this.tyle="非洲狮";
+}
+*/
+//想将公共的属性和方法抽取出来
+//若是创建的构造函数有与之相应的属性，那么直接到公共的属性获取
+解决方案：原型链继承：
+实现方法：将子类型对象的原型对象指向超类型对象
+function Animal() {//超类型（其他语言：父类 基类）封装公共的属性和方法。
+	this.name="name";
+	this.clr = "clr";
+	this.type="type";
+	
+	this.run = function() {
+		return "run...";
+	}
+}
+
+//继承：
+function Tiger() { //子类型 （其他类型：子类 派生类）
+	this.role = "森林之王";
+	Tiger.prototype.aa = "222";
+}
+
+function Lion() {
+	this.live = 50;
+}
+
+Tiger.prototype = new Animal();//将子类型对象的原型对象指向了超类型对象
+Lion.prototype = new Animal();
+
+var t = new Tiger();
+var l = new Lion();
+alert("tiger:" + t.name);
+alert("tiger aa:" + t.aa);
+alert("tiger role:" + t.role);
+alert("lion:" + l.type);
+alert("lion live:" + l.live);
+
+//继承的好处:减少大量重复性的代码
+
+2.原型链的方式存在：无法传递参数
+	使用对象冒充的方式继承
+//超类型	
+function Animal(name,clr,type) {
+	this.name = name;
+	this.clr = clr;
+	this.type = type;
+}
+
+function Tiger(name,clr,type,role) {
+	this.role = role;
+	//具有超类型的属性
+	//用this对象冒充Animal执行构造函数
+	Animal.call(this,name,clr,type);
+}
+
+function Lion(name,clr,type,live) {
+	this.live = live;
+	//具有超类型的属性
+	Animal.call(this,name,clr,type);
+}
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+	

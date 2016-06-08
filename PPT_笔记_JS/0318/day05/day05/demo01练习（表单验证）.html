@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//表单验证；
+		function check(){
+			var userNameVar = document.f.userName.value;
+			var passVar = document.f.pass.value;
+			if(isNaN(userNameVar)==false){
+				alert("亲，用户名应该不能全是数字！");
+				return ;//终止函数；
+			}
+			
+			if(userNameVar.length<4 || userNameVar.length>10){
+				alert("亲，用户名长度：4-10！");
+				return ;//终止函数；
+			}
+			
+			if(passVar.length==0){
+				alert("亲，请输入密码！");
+				return ;//终止函数；
+			}
+			
+			if(passVar.length<6 || passVar.length>16){
+				alert("亲，密码长度：6-16！");
+				return ;//终止函数；
+			}
+			var checkPass = document.f.checkPass.value;
+			if(passVar!=checkPass){
+				alert("亲，两次密码不一致！");
+				//document.f.pass.value="";//清空文本框的内容；
+				//document.f.pass.focus();//把焦点（光标）置入到pass文本框中；
+				document.f.pass.select();//选中pass文本框的内容；
+				return ;//终止函数；
+			}
+			
+			alert("亲，注册成功！");
+			
+		}
+	</script>
+	<body>
+		<form name="f">
+			用户名：<input type="text" name="userName"/> 不能全是数字，长度：4-10<br>
+			密码：<input type="password" name="pass" /> 6-16位<br>
+			再次输入密码：<input type="password" name="checkPass" /> 两次密码要一致<br>
+			<input type="button" value="注册" onclick="check()"/>
+		</form>
+	</body>
+	
+</html>

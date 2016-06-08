@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		function test(){
+			//定义一个数组
+			var arr=[11,23,34,45,56,67,78,89,100];
+			
+			var num = 35;//要插入的数；
+			
+			//1、找位置
+			for(var i=0;i<arr.length;i++){
+				if(num<arr[i]){
+					break;
+				}
+			}
+			//i=3
+			//2、腾位置
+			for(var j=arr.length-1;j>=i;j--){
+				arr[j+1] = arr[j];
+			}
+			
+			//3、放进去
+			arr[i] = num;
+			
+			alert("arr.length="+arr.length);
+			//输出;
+			document.write("循环右移后的数组：");
+			for(var i in arr){
+				document.write(arr[i]+",");
+			}
+			
+		}
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="插数" onclick="test()"/>
+		 </form>
+	</body>
+</html>

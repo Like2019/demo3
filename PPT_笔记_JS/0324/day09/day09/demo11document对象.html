@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	function test(){
+		var formArr = document.forms;//获得页面上所有的form元素；
+		
+		//document.write(typeof(formArr));
+		//document.write(formArr.length);
+		
+		/*alert(document.forms[0].txt.value);
+		alert(document.f.txt.value);
+		*/
+		
+		//alert(document.all["f"].txt.value);
+		
+		//alert(document.URL);
+		//document.bgColor="#ff0000";
+		
+		//alert(document.getElementsByName("f")[0].txt.value);
+		
+		alert(document.getElementsByTagName("form")[0].txt.value);
+	}
+	
+</script>
+
+<body >
+	<form name="f">
+		<input type="text" name="txt"/>
+		<input type="button" value="我在第二个form里" />
+	</form>
+	<form name="f">
+		<input type="text" name="txt"/>
+		<input type="button" value="5秒后显示hello JS" onclick="test()"/>
+	</form>
+	
+	<form name="f">
+		<input type="button" value="我在第二个form里" />
+	</form>
+</body>
+</html>

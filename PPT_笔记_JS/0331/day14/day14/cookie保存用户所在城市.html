@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+	<link id="cssId" type="text/css" rel="styleSheet" href="css/redSkin.css"/>
+
+	<script type="text/javascript">
+		function showCity(){
+			var cookieStr = document.cookie;
+			window.status = cookieStr;
+			var startIndex = cookieStr.indexOf("cityId=");
+			//window.status = startIndex;
+			if(startIndex!=-1){
+				var str = new String(cookieStr);
+				var endIndex = str.substring(startIndex+7).indexOf(";");
+				window.status = window.status+"endIndex="+endIndex;
+				if(endIndex==-1){
+					var cityId = str.substring(startIndex+7);
+				}else{
+					var cityId = str.substring(startIndex+7,startIndex+7+endIndex);
+				}
+				document.getElementById("cityId").value = cityId;
+			}
+		}
+		
+		function saveCity(){
+			var exdate=new Date();
+			exdate.setDate(exdate.getDate()+5)
+			var cityId = document.getElementById("cityId").value;
+			document.cookie = "cityId="+cityId+";expires="+exdate.toGMTString();//没有设定失效时间，火狐没有问题
+			window.status = document.cookie;
+		}
+	</script>
+	<body onload = "showCity()">
+		<select id="cityId" onchange="saveCity()" >
+			<option value="1">北京</option>
+			<option value="2">西安</option>
+			<option value="3">上海</option>
+		</select>
+	</body>
+
+</html>

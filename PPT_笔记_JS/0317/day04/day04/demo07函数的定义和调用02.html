@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		
+		//定义一个带参的函数;
+		//判断一个年是不是闰年
+		function isRun(year){//year是函数的参数，即已知条件
+			if((year%4==0 && year%100!=0)||(year%400==0)){
+				return true;//return后面跟的是函数的返回值，即结果
+			}else{
+				return false;//return后面跟的是函数的返回值，即结果
+			}
+		}
+		
+		function test(){
+			var year = parseInt(document.f.txt.value);
+			alert(isRun(year));
+		}
+		
+		function test1(){
+			var year = parseInt(document.f.selYear.value);
+			alert(isRun(year));
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+			<input type="text" name="txt" />
+			<input type="button" value="点我" onclick="test()"/>
+			
+			<select name="selYear">
+				<option value="2016">2016</option>
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+			</select>
+			<input type="button" value="点我" onclick="test1()"/>
+			
+	</body>
+	
+</html>

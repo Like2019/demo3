@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<style type="text/css">
+#divId{
+	width:200px;background-color:#f00;
+}
+</style>
+<script type="text/javascript" src="tools.js"></script>
+<script type="text/javascript">
+function modifyStu(){
+	//1、找到要替换的单元格
+	var stuInfo = document.getElementById("stuInfo").childNodes[0];
+	//tbody的有效节点
+	var tbodyChildArr = removeTextNode(stuInfo.childNodes);
+	//
+	var oldTd = removeTextNode(tbodyChildArr[1].childNodes)[0];
+	
+	//2、根据输入的内容，创建新的单元格;
+	var newTd = document.createElement("td");
+	var textNode = document.createTextNode(document.getElementById("nameText").value);
+	newTd.appendChild(textNode);
+	//3、替换（用新的单元格替换旧的单元格）
+	
+	tbodyChildArr[1].replaceChild(newTd,oldTd);
+}
+
+</script>
+<body>
+	<div>
+		姓名：<input id="nameText" type="text" /><br>
+		年龄：<input id="ageText" type="text" />
+		<input type="button" value="替换学生" onclick="modifyStu()"/>
+	</div>
+	<div id="divId">
+		<table id="stuInfo" width="200" border="1"><tr>
+			<td>姓名</td>
+			<td>年龄</td>
+		  </tr>
+		  <tr>
+			<td>江泽民1</td>
+			<td>50</td>
+		  </tr>
+		  <tr>
+			<td>江泽民2</td>
+			<td>60</td>
+		  </tr>
+		</table>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		function show(){
+		//如何用javascript获得单选按钮的值；
+			//alert(document.f.like.value);
+			if(document.f.like.value=="1"){
+				document.write("<img src='img/fr.jpg'/>");
+			}else{
+				document.write("<img src='img/tigger2.jpg'/>");
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+			<input name="like" type="radio" value="1" />美女
+			<input name="like" type="radio" value="0" />野兽
+			<input type="button" value="显示" onclick="show()"/>
+		</form>
+	</body>
+	
+</html>

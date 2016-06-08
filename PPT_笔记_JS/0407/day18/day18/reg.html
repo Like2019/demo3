@@ -1,0 +1,55 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>倒计时</title>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+<script type="text/javascript">
+var xhr = null;
+function  getHttpRequest()
+{
+    if (window.ActiveXObject){
+           return new ActiveXObject("Microsoft.XMLHttp");
+  	 }
+       else
+	 {
+          return new XMLHttpRequest();
+     } 
+}
+
+
+function checkUser(){
+	xhr = getHttpRequest();
+	var userName = document.getElementById("userId").value;
+	xhr.open("get","checkUser.jsp?userName="+userName,true);
+	xhr.onreadystatechange = fun;
+	xhr.send(null);
+}
+
+function fun(){
+	if(xhr.readyState == 4&&xhr.status==200){
+		var result = xhr.responseText;
+		var reg = /\s+/;
+		result = result.replace(reg,"");
+		if(result == "false"){
+			document.getElementById("userSpan").innerHTML = "亲，用户名可以使用，赶紧占住";
+		}else{
+			document.getElementById("userSpan").innerHTML = "亲，用户名已经被使用,换个吧";
+		}
+	}
+}
+
+</script>
+</head>
+
+<body>
+
+用户名：<input type="text" id="userId" onblur="checkUser()" /><span id="userSpan"></span><br>
+密码：<input type="password" id="passId"/><span id="passSpan"></span><br>
+<input type="button" value="注册"/>
+
+	<a href="login.html">登录</a>
+</body>
+
+</html>

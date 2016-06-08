@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+		function calcY(){
+			//1+2+……+100
+			var sum =0;
+			//步长；
+			/*
+			for(var i=1;i<=100;i++){
+				sum = sum +i;
+			}
+			*/
+			//求100内的偶数和；
+			/*
+			for(var i=2;i<=100;i=i+2){
+				sum = sum+i;
+			}
+			*/
+			var i=1;
+			for(;i<=100;i++){
+				sum = sum +i;
+			}
+			//以下是死循环
+			for(;;){
+				document.write("我是赖皮！");
+			}
+			document.write("i="+i+"<br>");
+			document.write("sum="+sum);
+		}
+		
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

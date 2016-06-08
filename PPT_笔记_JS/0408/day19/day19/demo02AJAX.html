@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>注册页面</title>
+
+</head>
+<script type="text/javascript">
+var xhr=null;
+function getText(){
+	//1、创建XMLHttpRequest对象;
+	xhr = new XMLHttpRequest();
+	//2、设置请求参数；
+	xhr.open("get","test.jsp",true);
+
+	//3、设置回调函数；（当请求完成后，需要做哪些事情）
+	xhr.onreadystatechange = showResult;
+	//4、发送请求；
+	xhr.send(null);
+
+}
+
+function showResult(){
+	//1、判断状态合适后，
+	//alert(xhr.readyState);
+	//alert("xhr.status="+xhr.status);
+	if(xhr.readyState==4 && xhr.status== 200){
+	//2、用responseText得到服务器响应的内容，
+		var str = xhr.responseText;
+	//3、显示出来。	
+		document.getElementById("divId").innerHTML = str;
+	}
+}
+
+</script>
+
+<body>
+
+<input type="button" value="从服务器端拿点东西" onclick="getText()"/>
+<br>
+亲：服务器给你的是：
+<div id="divId"></div>
+	
+</body>
+
+</html>

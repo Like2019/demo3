@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		/*
+		var num=21;
+		if(num%2==0){
+			alert(num+"是偶数");
+		}
+*/
+		function isOu(){
+			var num = parseInt(document.f.num.value);
+			if(num%2==0){
+				alert(num+"是偶数");
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+		<input name="num" type="text"/>
+		<input type="button" value="看看是不是偶数" onclick="isOu()"/>
+		</form>
+	</body>
+	
+</html>

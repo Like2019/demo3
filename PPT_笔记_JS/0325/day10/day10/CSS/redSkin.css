@@ -1,0 +1,12 @@
+body{
+	background-color:#f00;
+}
+
+#layer{
+	background-color:pink;
+	width:200px;
+	height:250px;
+	position:absolute;
+	left:200px;
+	top:100px;
+}

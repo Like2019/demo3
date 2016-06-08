@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	
+	</head>
+	<script type="text/javascript">
+	
+		//完成加法的函数；
+		function add(){
+			//1、得到num1文本框的数据；赋给一个变量
+			var num1 = document.f.num1.value;//document代表整个页面；f是form的名字，num1是文本框的名字；
+			//2、得到num2文本框的数据；赋给一个变量
+			var num2 = document.f.num2.value;
+			
+			//3、做加法；
+			var result = parseInt(num1)+parseInt(num2);
+			//4、把计算的结果放到result文本框中；
+		    document.f.result.value = result;
+		}
+	</script>
+	<body>
+		<form name="f" >
+			<input name="num1" type="text"/>+
+			<input name="num2" type="text"/>
+			<input type="button" value="=" onclick="add()"/>
+			<input name="result" type="text"/>
+		</form>
+	</body>
+
+</html>

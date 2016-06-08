@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+
+function checkCheckMa(){
+	//var reg = /^1\d{10}$/ig;
+	
+	/*
+	var regStr = "^1\\d{10}$";
+	alert(regStr);
+	*/
+	
+	/*
+	var reg = new RegExp(/^1\d{10}$/,"i");
+	var str = "15099886622";
+	alert(reg.test(str));
+	*/
+	
+	//其它都可以，特殊字符里，只要@和. 
+	//穷举出，特殊字符（出来@和.）
+	
+	
+	//var reg = /[^\w@\.]/; //$
+	
+	var reg = /^[\w@\.]{10}$/; //$
+	
+	[\u4e00-\u9FA5];
+	
+	/*
+	var str = "abcde$";
+	if(reg.test(str)==true){
+		alert("不符合！");
+	}else{
+		alert("符合！");
+	}
+	*/
+	
+	/*
+	var reg = new RegExp("^1\\d{10}$","i");
+	var str = "15099886622";
+	alert(reg.test(str));
+	*/
+}
+	
+</script>
+<body >
+验证码：<input type="button" value="测试" onclick="checkCheckMa()">
+
+</body>
+</html>

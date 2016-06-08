@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	
+		function isOuOrJi(){
+			var num1 = parseInt(document.f.num1.value);
+			if(num1%2==0){
+				alert(num1+"是偶数！");
+			}else{
+				alert("亲，"+num1+"是奇数！");
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+		<input name="num1" type="text"/>
+		<input type="button" value="看看是偶数还是奇数" onclick="isOuOrJi()"/>
+		</form>
+	</body>
+	
+</html>

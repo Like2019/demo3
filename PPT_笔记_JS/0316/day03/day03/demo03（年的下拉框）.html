@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+	//1990-2016
+	function calcY(){
+		var i = 1990;//i叫循环变量
+		document.write("<select>");
+		while(i<=2016){ 
+			document.write("<option >"+i+"</option>");
+			i++;
+		}
+		document.write("</select>年");
+	}
+	
+	</script>
+	<body>
+		<form name="f">
+	
+		<input type="button" value="打印年的下拉框" onclick="calcY()"/>
+		</form>
+	</body>
+	
+</html>

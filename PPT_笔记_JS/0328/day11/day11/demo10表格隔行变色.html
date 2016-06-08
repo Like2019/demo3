@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<script type="text/javascript" src="tools.js"></script>
+<script type="text/javascript">
+function changeColor(){
+	//1、得到所有的行;
+	var tBodyChildNodes = removeTextNode(document.getElementById("stuInfo").childNodes[0].childNodes);
+	
+	//2、循环所有的行(奇数行和偶数行分别设置不同的颜色)
+	for(var i=0;i<tBodyChildNodes.length;i++){
+		if(i%2==0){
+			tBodyChildNodes[i].style.backgroundColor ="pink";
+		}else{
+			tBodyChildNodes[i].style.backgroundColor ="tan";
+		}
+	}
+}
+
+</script>
+<body onload="changeColor()">
+	<table id="stuInfo" width="200" border="1"><tr>
+		<td>姓名</td>
+		<td>年龄</td>
+	  </tr>
+	  <tr>
+		<td>江泽民</td>
+		<td>50</td>
+	  </tr>
+	  <tr>
+		<td>芙蓉</td>
+		<td>30</td>
+	  </tr>
+	  <tr>
+		<td>凤姐</td>
+		<td>28</td>
+	  </tr>
+	</table>
+	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<style type="text/css">
+#grandpa{
+	width:200px;height:100px;background-color:#f00;
+}
+</style>
+<script type="text/javascript">
+	function test(){
+		var grandpa = document.getElementById("grandpa");
+		//alert(grandpa.attributes.length);
+		//alert(grandpa.attributes[1].nodeValue);
+		//alert(grandpa.attributes["id"].nodeType);
+	//	alert(grandpa.attributes["id"].nodeValue);
+	//	alert(grandpa.attributes["onclick"].nodeValue);
+		alert(grandpa.attributes.getNamedItem("id").nodeValue);
+		
+	}
+
+</script>
+<body>
+	<div id="grandpa"  onclick="test()">
+		第一行
+		<div></div>
+		第三行
+	</div>
+</body>
+</html>

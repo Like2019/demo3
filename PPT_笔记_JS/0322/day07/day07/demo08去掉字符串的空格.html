@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+	
+	var str="  Hello   Wo r ld !  ";
+	
+	//去掉全部的空格；
+	//document.write(str.replace(/ /ig,""));
+	
+	//去掉两端的空格;
+	//1、找到第一个非空格字符的位置
+	var startIndex = 0;
+	for(var i=0;i<str.length;i++){
+		if(str.charAt(i)!=" "){
+			 startIndex = i;
+			 break;
+		}
+	}
+	
+	//2、找到最后一个非空格字符的位置
+	var endIndex = str.length;
+	for(var i=str.length-1;i>=0;i--){
+		if(str.charAt(i)!=" "){
+			 endIndex = i;
+			 break;
+		}
+	}
+	
+	//3、用substring求字串；
+	var resultStr = str.substring(startIndex,endIndex+1);
+	document.write("{"+resultStr+"}");
+	
+</script>
+<body>
+</body>
+</html>

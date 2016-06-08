@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		
+		function test(sortBy){
+			//定义一个数组
+			var arr=[12,8,3,45,21,98];
+			//冒泡排序
+			for(var i=0;i<arr.length-1;i++){//趟数   //i=0;       i=1  
+				for(var j=0;j<arr.length-1-i;j++){    //j=5次      j=4
+				    if(sortBy(arr[j],arr[j+1])>0){
+						var temp = arr[j];
+						arr[j] = arr[j+1];
+						arr[j+1] = temp;
+					}
+				}
+			}
+			//输出
+			for(var i=0;i<arr.length;i++){
+				document.write(arr[i]+"<br>");
+			}
+		}
+		
+		function compare1(a,b){
+			return a-b;
+		}
+		
+		function compare2(a,b){
+			return b-a;
+		}
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="冒泡排序" onclick="test(compare2)"/>
+		 </form>
+	</body>
+</html>

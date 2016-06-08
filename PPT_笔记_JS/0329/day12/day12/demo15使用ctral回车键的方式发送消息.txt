@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+
+<script type="text/javascript" language="JavaScript">
+function speedSend(event){
+	window.status = event.keyCode;
+	if(event.ctrlKey==1 && event.keyCode==13){
+		sendInfo();
+	}
+}
+function sendInfo(){
+	var allInfoObject = document.getElementById("allInfo");
+	var sendInfoObject = document.getElementById("info");
+	allInfoObject.value= allInfoObject.value+ "您说："+sendInfoObject.value+"\n";
+	sendInfoObject.value = "";
+	sendInfoObject.focus();
+	//让textarea的滚动条滚动的最下面
+	allInfoObject.scrollTop = allInfoObject.scrollHeight;
+}
+</script>
+</head>
+<body >
+	<textarea id="allInfo" style="width:400px;height:300px"></textarea><br>
+	<input type="text" id="info"style="width:300px" onkeydown="speedSend(event)"/>
+	<input type="button" value="发送" style="width:80px"  onclick="sendInfo()"/>
+</body>
+</html>
+
+
+
+
+
+
+

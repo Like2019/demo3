@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	
+	 <style type=text/css>
+	*{margin:0; padding:0;}
+	.m{width:420px;height:500px;background:#993399;margin:0 auto;}
+	.b1{width:400px;height:50px;border:0;float:left;color:#000;}
+	.f{width:400px;height:400px;}
+	input{float:left;width:85px;height:90px;border:0;color:#fff;}
+	.e3{background:url(images/bg.bmp) center center;}
+	td{float:left;padding:8px 10px;}
+	input{font-size:35px}
+	</style>
+	<script type="text/javascript">
+		//正确显示；
+		//正确的保存，
+		//正确运算；
+		
+		//当前输入的是数字还是运算符；
+		//当前输入的是第一个数还是第二个数；
+		
+		//25+6
+		
+		//当前是第一个数还是第二个数；
+		var currentNumOrd=1;//取值为1或2；
+		
+		//第一个数;
+		var num1=0;
+		//第二个数;
+		var num2=0;
+		
+		2+567=
+		
+		//输入数字
+		function inNumber(num){
+			//1、上次输入的是数字
+				//把num得显示到界面；(num进行追加到后面);
+				document.f.txt.value = document.f.txt.value+num;
+				//把num要保存起来；
+				//1、当前需要保存到哪个数；
+				if(currentNumOrd==1){
+					num1 = num1*10+num;
+				}else{
+					num2 = num2*10+num;
+				}
+			
+			//2、上次输入的是运算符(+,-*/)
+			
+			
+			
+			//3、上次输入的是=
+			
+			//4、上次输入的C
+			
+		
+		}
+		
+		
+		//输入运算符；
+		
+		
+		//输入运算符；
+		
+		
+		//输入的是删除；
+		
+		
+		
+	
+		
+	</script>
+   
+	<body>
+    <div class="m">
+		<form name="f">
+			<table  width="400px" height="100px">
+				<tr>
+					<td text-align="center">
+						<input type="text" class="b1" name="txt"  value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td><input class="e3" type="button" value="7" onclick="inNumber(7)" /></td>
+                    <td><input class="e3"  type="button" value="8" onclick="inNumber(8)" /></td>
+                    <td><input  class="e3" type="button" value="9" onclick="inNumber(9)" /></td>
+                    <td><input class="e3"  type="button" value="+" onclick="shuru('+')" /></td>
+				</tr> 
+                <tr>
+					<td><input  class="e3" type="button" value="4" onclick="inNumber(4)" /></td>
+                    <td><input  class="e3" type="button" value="5" onclick="inNumber(5)" /></td>
+                    <td><input  class="e3" type="button" value="6" onclick="inNumber(6)" /></td>
+                    <td><input  class="e3" type="button" value="-" onclick="shuru('-')" /></td>
+				</tr>
+                <tr>
+					<td><input class="e3"  type="button" value="1" onclick="inNumber(1)" /></td>
+                    <td><input  class="e3" type="button" value="2" onclick="inNumber(2)" /></td>
+                    <td><input  class="e3" type="button" value="3" onclick="inNumber(3)" /></td>
+                    <td><input  class="e3" type="button" value="*" onclick="shuru('*')" /></td>
+				</tr>
+                <tr>
+					<td><input  class="e3" type="button" value="0" onclick="inNumber(0)" /></td>
+                    <td><input  class="e3"  type="button" value="c" onclick="shuru('c')" /></td>
+                    <td><input  class="e3" type="button" value="=" onclick="shuru('=')" /></td>
+                    <td><input class="e3"  type="button" value="/" onclick="shuru('/')" /></td>
+				</tr>
+			</table>
+		</form>
+     </div>
+	</body>
+</html>

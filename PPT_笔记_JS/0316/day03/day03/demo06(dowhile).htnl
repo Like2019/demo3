@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+		function calcY(){
+			//打印100以内偶数之和
+			/*
+			var i=1;
+			var sum = 0;
+			while(i<=100){
+				if(i%2==0){
+					sum = sum+i;
+				}
+				i++;
+			}
+			*/
+			
+			var i=2;
+			var sum = 0;
+			while(i<=100){
+				sum = sum+i;
+				i=i+2;
+			}
+			document.write(sum);
+		}
+		
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

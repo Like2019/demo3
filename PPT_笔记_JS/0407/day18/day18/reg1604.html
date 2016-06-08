@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>欢迎注册1604的网站</title>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+<script type="text/javascript">
+
+var xhr = null;
+
+function checkUser(){
+	//1、创建XMLHttpRequest;
+	xhr = new XMLHttpRequest();
+	
+	//2、设置请求参数（找谁）
+	
+	//var pass = document.getElementById("passId").value;
+	var t = document.getElementById("userId").value;
+	xhr.open("get","http://10.0.163.65:8080/web1604/checkUser1604.jsp?u="+t,true);
+	
+	//3、设置回调函数（找到你要的东西后，怎么处理）
+	xhr.onreadystatechange = fun;
+	
+	//4、发送请求；
+	xhr.send(null);
+}
+
+function fun(){
+	
+	if(xhr==null){
+		return;
+	}
+	if(xhr.readyState == 4 && xhr.status==200){
+		var temp = xhr.responseText;
+		document.getElementById("userSpan").innerHTML = temp;
+	}
+}
+
+</script>
+</head>
+
+<body>
+
+用户名：<input type="text" id="userId" name="userName" onblur="checkUser()" /><span id="userSpan"></span><br>
+密码：<input type="password" id="passId" name="userPass"/><span id="passSpan"></span><br>
+
+<input type="button" value="注册"/>
+<a href="login.html">登录</a>
+</body>
+
+</html>

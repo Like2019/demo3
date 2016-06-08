@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<meta charset = "utf-8"/>
+</head>
+
+<script type="text/javascript">
+window.onload = function(){
+	//给每个商品的复选框绑定一个onclick事件；
+	for(var i=0;i<3;i++){
+		document.getElementById("chk"+(i+1)).onclick = function(){
+			dealChekedStatus();
+		}
+	}
+}
+
+//根据每个商品复选框的选中状态来决定全选复选框的选中状态；
+function dealChekedStatus(){
+	//定义变量，来对应全选复选框的状态；
+	var isChecked = true;
+	for(var i=0;i<3;i++){
+		if(document.getElementById("chk"+(i+1)).checked == false){
+			isChecked = false;
+			break;
+		}
+	}
+	var chkAll = document.getElementById("chkAll");
+	chkAll.checked = isChecked;
+}
+
+//全选
+function changeCheck(){
+	var chkAll = document.getElementById("chkAll");
+	//让每个商品的复选框的选中状态和chkAll的选中状态一致；
+	for(var i=0;i<3;i++){
+		document.getElementById("chk"+(i+1)).checked = chkAll.checked;
+	}
+}
+	
+//反选	
+function notCheck(){
+	var chkAll = document.getElementById("chkAll");
+	//让每个商品的复选框的选中状态和chkAll的选中状态一致；
+	for(var i=0;i<3;i++){
+		document.getElementById("chk"+(i+1)).checked = !document.getElementById("chk"+(i+1)).checked;
+	}
+	dealChekedStatus();
+}	
+	
+</script>
+
+<body >
+		全选<input id="chkAll" type="checkbox" onclick="changeCheck()" /><input  type="button" value="反选" onclick="notCheck()" /><br>
+		<input id="chk1" type="checkbox"  />商品1<br>
+		<input id="chk2" type="checkbox" />商品2<br>
+		<input id="chk3" type="checkbox" />商品3<br>
+		
+</body>
+</html>

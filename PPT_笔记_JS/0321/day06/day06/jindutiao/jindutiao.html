@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	
+		
+		
+		function bian(){
+			
+			setInterval("bianda()",500);
+		
+		}
+		
+		function bianda()
+			{var x=parseInt(document.f.v.value); 
+			if(x==100)
+			{x=0;}
+				var x=x+1;
+				var y=x*8;
+			document.getElementById("imgId").style.width=y+"px";
+			x=String(x)
+		    document.f.v.value=x+"%";
+		
+			}
+		
+	</script>
+    
+    <style type="text/css">
+	
+	.n{width:900px;height:102px;border:1px dashed #0F0;nargin:0 auto; }
+	.n1{height:100px;width:0px;background:blue;border:0;float:left;}
+	.n2{height:100px;float:right;border:1px solid #fff;background:#fff;}
+	</style>
+	<body>
+    <div class="n">
+		<form name="f">
+						<input  id="imgId" class="n1" type="text"  />
+                        <input type="button" class="n2" onclick="bian()"  name="v" value="0%" >
+				
+		</form>
+     </div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	var num = 20;//num是个数字类型
+	var n = document.f.baseNum.value;//n是字符串类型；
+	var baseNum = parseInt(document.f.baseNum.value);//baseNum是数字型；
+		
+		//入职薪水10K，每年涨幅5%，50年后工资多少？
+//提示：Math.pow(3,5)   得到的是3的5次方；
+		//10000 * 1.05*1.05*1.05 = 10000*Math.pow(1.05,3);
+	function calc(){
+		//var baseNum是定义了一个javascript的变量，和html中的name没有关系。
+		var baseNum = parseInt(document.f.baseNum.value);
+		var zhangfu = parseInt(document.f.zhangfu.value);
+		var year = parseInt(document.f.year.value);
+		
+		var result = baseNum*Math.pow(1+zhangfu/100,year);
+		
+		document.f.result.value = result;
+	}
+
+		
+		
+	</script>
+	<body>
+		<form name="f">
+			<input name="baseNum" type="text" value="10000"/>元
+			<input name="zhangfu" type="text" value="5"/>%
+			<input name="year" type="text" value="50"/>
+			<input type="button" value="计算" onclick="calc()"/>
+			结果：<input name="result" type="text" />
+		</form>
+		
+	</body>
+	
+</html>

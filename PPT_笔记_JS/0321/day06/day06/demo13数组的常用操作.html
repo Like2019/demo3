@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		function test(){
+			//定义一个数组
+			//var arr=[12,8,3,45,21,98];
+			var personArr = ["芙蓉","凤姐","江泽民","春哥"];
+			
+			//追加；
+			//arr.push(38);
+			//personArr.push("航哥","航姐");
+			
+			//在数组的开始插入元素
+			//arr.unshift(1);
+			//personArr.unshift("光头强打头","熊大");
+			
+			//在数组中的指定下标插入一个数；
+			//personArr.splice(2,0,"熊二");
+			
+			//personArr.splice(2,3,"熊二","熊三");
+			
+			var str = personArr.pop();   
+			
+			//输出
+			for(var i=0;i<personArr.length;i++){
+				document.write(personArr[i]+"<br>");
+			}
+			
+			document.write("删除的是："+str);
+			
+			
+		}
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="测试" onclick="test()"/>
+		 </form>
+	</body>
+</html>

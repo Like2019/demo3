@@ -1,0 +1,41 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<style type="text/css">
+			.aaa{
+				height:200px;
+				background-color:#ff0000;
+				
+			}
+		</style>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+	<script type="text/javascript">
+		function test(){
+			var divObject = $("#t");
+			var arr = window.getComputedStyle(divObject,null);
+			//document.write(arr);
+			/*
+			for(var i=0;i<arr.length;i++){
+				document.write(arr[i]+"<br>");
+			}
+			*/
+			document.write(arr["background-color"]);
+			document.write(arr["width"]);
+		}
+	</script>
+	</head>
+
+	<body>
+		
+		<form id="formId" >
+			<input type="button" value="改变样式" onclick="test()"/>
+		</form>
+		<div id="t" class="aaa" style="width:100px;">
+		</div>
+		
+	</body>
+
+</html>

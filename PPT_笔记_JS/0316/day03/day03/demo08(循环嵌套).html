@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+		function calcY(){
+			for(var i=1;i<=3;i++){
+				document.write("a<br>");
+				//把内层循环的语句当作一个整体
+				for(var j=1;j<=2;j++){
+					document.write("b<br>");
+				}
+				document.write("c<br>");
+				document.write("-----------------<br>");
+			}
+		}
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

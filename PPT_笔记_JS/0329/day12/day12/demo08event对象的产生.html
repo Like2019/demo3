@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+<style type="text/css">
+	#parent{
+		position:relative;
+		left:100px;
+		top:20px;
+		width:200px;
+		height:200px;
+		background-color:#0f0;
+	}
+	#t{
+		position:relative;
+		left:500px;
+		top:300px;
+		width:200px;
+		height:200px;
+		background-color:#f00;
+	}
+</style>
+<script type="text/javascript" language="JavaScript">
+  function clickWho(event) {
+	//兼容性
+	var evt = event?event:window.event;
+	 alert(evt);
+	// event.
+  }
+  
+</script>
+</head>
+<body >
+	<div id="parent" onclick="clickWho(event)">
+	</div>
+	
+	<div id="t" onclick="clickWho(event)">
+	</div>
+</body>  
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<title>onscroll事件</title>
+<meta charset = "utf-8"/>
+</head>
+
+
+<script type="text/javascript">
+
+function test1(){
+
+	var reg = /\*$/;//末尾是*
+	var mobilePhone = document.getElementById("mobilePhone").value;
+	alert(reg.test(mobilePhone));
+	
+}
+
+
+</script>
+
+
+<body id="dianji">
+电话号码：<input type="text" id="mobilePhone" /><span id="phoneSpan"></span><br>
+身份证号码：<input type="text" id="sfz" /><span id="sfz"></span><br>
+<input type="button" value="test" onclick="test1()"/>
+</body>
+</html>

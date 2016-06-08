@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+	<style type="text/css">
+		.divClass1{background:#f00;width:100px;height:200px;}
+		.divClass2{background:#0f0;width:200px;height:100px;}
+	</style>
+	<script type="text/javascript">
+		function test(){
+			if(document.getElementById("layer").getAttribute("class")=="divClass1"){
+				document.getElementById("layer").setAttribute("class","divClass2");
+			}else{
+				document.getElementById("layer").setAttribute("class","divClass1");
+			}
+		}
+	</script>
+	<body>
+		<form name="f">
+			<input type="button" value="显示" onclick="test()" />
+		</form>
+		<div id="layer" class="divClass1">hello div</div>
+		
+	</body>
+
+
+</html>

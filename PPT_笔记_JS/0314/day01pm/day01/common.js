@@ -1,0 +1,1 @@
+alert("亲，我是javascript");

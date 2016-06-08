@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<style type="text/css">
+#divId{
+	width:200px;background-color:#f00;
+}
+</style>
+<script type="text/javascript" src="tools.js"></script>
+<script type="text/javascript">
+	function insertStu(){
+		//1、获取文本框的值；
+		var name = document.getElementById("nameText").value;
+		var age = document.getElementById("ageText").value;
+		
+		//2、创建tr，两个td，两个文本节点；
+		var trObj= document.createElement("tr");
+		var tdNameObj= document.createElement("td");
+		var tdAgeObj= document.createElement("td");
+		var tdDelObj= document.createElement("td");
+		
+		var nameTextNode = document.createTextNode(name);
+		var ageTextNode = document.createTextNode(age);
+		
+		
+		//3、把tr与td，以及文本节点建立父子的层级关系
+		tdNameObj.appendChild(nameTextNode);
+		tdAgeObj.appendChild(ageTextNode);
+		tdDelObj.innerHTML = "<a href='#' onclick='deleteStu(this)'>删除</a>";
+		
+		trObj.appendChild(tdNameObj);
+		trObj.appendChild(tdAgeObj);
+		trObj.appendChild(tdDelObj);
+		
+		//4、使用insertBefore把，tr插入到第一个学生的前面；
+		//1)、找到tBody
+		var tbody = removeTextNode(document.getElementById("stuInfo").childNodes)[0];
+		//2)、找到第二行（第一个学生）
+		var firstStuObj = removeTextNode(tbody.childNodes)[1];
+		//3）、在第一个学生前面插入新的学生
+		tbody.insertBefore(trObj,firstStuObj);
+	}
+	
+	function deleteStu(currObj){
+		if(window.confirm("亲，您要删吗？")==false){
+			return;
+		}
+		//先找到tbody;
+		var tbody = removeTextNode(document.getElementById("stuInfo").childNodes)[0]
+		//删除tr（先得到tr，然后删除）
+		var child = currObj.parentNode.parentNode;
+		tbody.removeChild(child);
+	}
+	
+</script>
+<body>
+	<div>
+		姓名：<input id="nameText" type="text" /><br>
+		年龄：<input id="ageText" type="text" />
+		<input type="button" value="把学生插入到最上面" onclick="insertStu()"/>
+	</div>
+	<div id="divId">
+		<table id="stuInfo" width="200" border="1">
+		  <tr>
+			<td>姓名</td>
+			<td>年龄</td>
+			<td>删除</td>
+		  </tr>
+		  <tr>
+			<td>江泽民1</td>
+			<td>50</td>
+			<td><a href="#" onclick="deleteStu(this)">删除</a></td>
+		  </tr>
+		  <tr>
+			<td>江泽民2</td>
+			<td>51</td>
+			<td><a href="#" onclick="deleteStu(this)">删除</a></td>
+		  </tr>
+		  <tr>
+			<td>江泽民3</td>
+			<td>52</td>
+			<td><a href="#" onclick="deleteStu(this)">删除</a></td>
+		  </tr>
+		</table>
+	</div>
+
+</body>
+</html>

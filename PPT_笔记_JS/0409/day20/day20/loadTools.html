@@ -1,0 +1,26 @@
+
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>无标题文档</title> 
+
+<script type="text/javascript" src="tools.js"></script>
+<script>
+
+function createDiv(){
+	var divObj = $create("<div>");
+	divObj.style.backgroundColor = "red";
+	document.body.appendChild(divObj);
+	
+	var textObj = $create("为人民服务");
+	divObj.appendChild(textObj);
+}
+
+	
+
+</script> 
+</head> 
+<body> 
+	<input type="button" value="创建" onclick="createDiv()"/>
+</body> 
+</html>

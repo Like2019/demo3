@@ -1,0 +1,198 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>欢迎注册1604的网站</title>
+<style type="text/css">
+#mapDiv{
+	position:absolute;
+	left:50px;
+	top:50px;
+	width:480px;
+	height:300px;
+	background-color:pink;
+}
+
+
+</style>	
+<script type="text/javascript">
+	var myInterval=null;	var mapWidth = 480;
+	var mapHeight = 300;
+	//蛇的每节的宽和高都是20；
+	//蛇没走一步，跨越20；
+	var unitSize=20;
+	//蛇的初始方向是右；
+	var direction ="right";
+	//蛇头的初始位置：left:80
+	//蛇的初始长度为4，即4节；
+	//蛇身体的每节的坐标
+	var bodyArr = [
+			{"left":80,"top":0},
+			{"left":60,"top":0},
+			{"left":40,"top":0},
+			{"left":20,"top":0}
+			];
+	
+	//把蛇显示在界面上
+	function showSnake(){
+		var map = document.getElementById("mapDiv");
+		for(var i=0;i<bodyArr.length;i++){
+			var img = document.createElement("img");
+			img.src="body.jpg";
+			img.style.position = "absolute";
+			img.style.left = bodyArr[i].left+"px";
+			img.style.top = bodyArr[i].top+"px";
+			img.style.width = unitSize;
+			img.style.height = unitSize;
+			img.id = "img"+i;
+			map.appendChild(img);
+		}
+	}
+	
+	function run(){
+		myInterval = setInterval("goStep()",200);
+	}
+	
+	//朝前走一步
+	function goStep(){
+		//1、蛇身体（除了蛇头）朝前走
+		for(var i=bodyArr.length-1;i>0;i--){
+			//bodyArr[i] = bodyArr[i-1];
+			bodyArr[i].left = bodyArr[i-1].left;
+			bodyArr[i].top = bodyArr[i-1].top;
+		}
+		//2、蛇头根据方向朝前走
+		var snakeHead = document.getElementById("img0");
+		if(direction=="right"){
+			bodyArr[0].left = bodyArr[0].left+unitSize;
+		}else if(direction=="down"){
+			bodyArr[0].top = bodyArr[0].top+unitSize;
+		}else if(direction=="left"){
+			bodyArr[0].left = bodyArr[0].left-unitSize;
+		}else if(direction=="up"){
+			bodyArr[0].top = bodyArr[0].top-unitSize;
+		}
+		
+		//4、蛇头是否撞墙，是否碰到自身；
+		if(bodyArr[0].left<0 || bodyArr[0].top<0 || bodyArr[0].left>=mapWidth || bodyArr[0].top>=mapHeight){
+			gameOver();
+			return;
+		}
+		
+		//循环蛇身每一节，判断每一节和头是否重合
+		for(var i=1;i<bodyArr.length;i++){
+			if(bodyArr[0].left==bodyArr[i].left && bodyArr[0].top==bodyArr[i].top){
+				gameOver();
+				return;
+			}
+		}
+		
+		//真正改变外观；
+		for(var i=0;i<bodyArr.length;i++){
+			document.getElementById("img"+i).style.top = bodyArr[i].top+"px";
+			document.getElementById("img"+i).style.left =bodyArr[i].left+"px";
+		}
+		
+		//3、判断蛇头是否和食物重合，如果重合就吃
+		var food = document.getElementById("imgFood");
+		if(food.style.left==snakeHead.style.left && food.style.top ==snakeHead.style.top){
+			eatFood();
+		}
+	}
+	
+	//改变方向
+	function changeDirection(event){
+	
+		window.status = event.keyCode;
+		switch(event.keyCode){
+			case 37:
+				if(direction!="right"){
+					direction="left";
+				}
+				break;
+			case 38:
+				if(direction!="down"){
+					direction="up";
+				}
+				break;
+			case 39:
+				if(direction!="left"){
+					direction="right";
+				}break;
+			case 40:
+				if(direction!="up"){
+					direction="down";
+				}break;
+			default:;
+		}
+	}
+	
+	//显示食物
+	function showFood(){	//随机出left(0,20,40,60,-mapWidth-20)和top(0,20,40,60-mapHeight);
+		//随机出left(0,unitSize,2*unitSize,3*unitSize,-mapWidth)和top(0,unitSize,2*unitSize,3*unitSize,-mapHeight);
+		
+		//Math.random()*(400/20)*20;
+		
+		//0.9*380 = 342/20 = 17*20 =340; 
+		
+		//(0-23)*20
+		
+		var isWhile = false;//是否要继续循环取随机数；
+		do{
+			isWhile = false;
+			var left = parseInt(Math.random()*(mapWidth/unitSize))*unitSize;
+			var top =  parseInt(Math.random()*(mapHeight/unitSize))*unitSize;
+			for(var i=0;i<bodyArr.length;i++){
+				if(left== bodyArr[i].left && top== bodyArr[i].top){
+					isWhile = true;
+					break;
+				}
+			}
+			
+		}while(isWhile);
+		
+		var img = document.getElementById("imgFood");
+		img.style.left = left+"px";
+		img.style.top = top+"px";
+		img.style.width = unitSize;
+		img.style.height = unitSize;
+	}
+	
+	//吃食物
+	function eatFood(){
+		showFood();
+		//长长
+		grow();
+	}
+	
+	//长长
+	function grow(){
+		var img = document.createElement("img");
+		img.src="body.jpg";
+		img.style.position = "absolute";
+		img.style.left = -1000+"px";
+		img.style.top = -1000+"px";
+		img.style.width = unitSize;
+		img.style.height = unitSize;
+		img.id = "img"+bodyArr.length;
+		document.getElementById("mapDiv").appendChild(img);
+		bodyArr.push({"left":0,"top":0});
+	}
+	
+	//游戏结束
+	function gameOver(){
+		alert("你为什么想不开呢！");
+		clearInterval(myInterval);
+	}
+
+</script>
+</head>
+
+<body onload="showSnake();run();showFood()" onkeydown="changeDirection(event)" >
+	<input type="button" value="走一步" onclick="goStep()"/>
+	<div id="mapDiv">
+		<img id="imgFood" src="food.png" style="position:absolute"/>
+	</div>
+</body>
+
+</html>

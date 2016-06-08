@@ -1,0 +1,134 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			var ajax = null;
+			window.onload = function() {
+				document.getElementById("ajaxGET").onclick = function() {
+					//1.获取ajax对象
+					ajax = createAjax();
+					if(ajax) {//判断是否支持ajax
+						//2.准备发送请求，设置ajax的参数
+						//默认为异步
+						var url = "http://localhost:8080/ajax/ajaxTest";
+						ajax.open("GET",url);
+						//3.真正的发送请求
+						ajax.send(null);
+						//4.ajax不断的监听服务器端响应的状态
+						ajax.onreadystatechange = handleMessage;
+					}
+					
+				}
+				
+				//ajax发送post请求
+				document.getElementById("ajaxPOST").onclick = function() {
+					//1.获取ajax对象
+					ajax = createAjax();
+					if(ajax) {//判断是否支持ajax
+						//2.准备发送请求，设置ajax的参数
+						//默认为异步
+						var url = "http://localhost:8080/ajax/ajaxTest";
+						ajax.open("POST",url);
+						//post请求需要设置头：给传递的数据编码
+						ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+						//3.真正的发送请求
+						ajax.send("name=zhangsan&age=23");
+						//4.ajax不断的监听服务器端响应的状态
+						ajax.onreadystatechange = handleMessage;
+					}
+					
+				}
+				
+				//ajax判断用户是否存在
+				document.getElementById("isExist").onblur = function() {
+					var name = this.value;
+					//1.创建ajax对象
+					ajax = createAjax();
+					if(ajax) {
+						//2.设置ajax的参数
+						var url = "http://localhost:8080/ajax/checkName";
+						ajax.open("POST",url,true);
+						//3.真正的发送请求
+						//若是post请求，那么需要设置请求头
+						ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+						ajax.send("name=" + name);
+						//4.监听响应状态
+						ajax.onreadystatechange = function(){
+							if(ajax.readyState == 4) {
+								if(ajax.status == 200) {
+									//若返回0，代表没有注册
+									//返回1，已存在此用户，已存在用户只有admin
+									var span = document.getElementsByTagName("span");
+									if(ajax.responseText == 0) {
+										span[0].innerHTML = "可以使用";
+									} else {
+										span[0].innerHTML = "用户已存在";
+									}
+								}
+							}
+						}
+					}	
+				}
+				
+				//通过ajax的获取json数据
+				document.getElementById("ajaxJSON").onclick = function() {
+					//发送ajax请求
+					//1.获取ajax对象
+					ajax = createAjax();
+					if(ajax) {
+						//2.配置ajax的参数
+						var url = "http://localhost:8080/ajax/json";
+						ajax.open("GET",url,true);
+						//3.真正的发送ajax请求
+						ajax.send(null);
+						//4.监听服务器响应的状态
+						ajax.onreadystatechange = function() {
+							if(ajax.readyState == 4 && ajax.status == 200) {
+								//可能会出现，js无法解决字符串为json数据
+								var ret = eval("(" + ajax.responseText + ")");
+								for(var i in ret) {
+									alert(ret[i].pwd);
+								}
+							}
+						}
+					}
+				
+				}
+				
+			}
+			/**
+				处理响应
+			*/
+			function handleMessage() {
+				if(ajax.readyState == 4) {//请求完成，并且响应就绪
+					if(ajax.status == 200 ) {//判断响应是否正常，200：OK
+						//获取响应的数据
+						var txt = ajax.responseText;
+						alert(txt);
+					} else {
+						alert("系统异常");
+					}
+				} 
+			}
+			
+			/**
+				创建ajax对象
+			*/
+			function createAjax() {
+				var ajax;
+				if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+					ajax=new XMLHttpRequest();
+				} else {// code for IE6, IE5
+					ajax=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				return ajax;
+			}
+		</script>
+
+	</head>
+	<body>
+		<input id="ajaxGET" type="button" value="提交GET方式的Ajax"/><br>
+		<input id="ajaxPOST" type="button" value="提交POST方式的Ajax"/><br>
+		验证用户名是否存在：<input id="isExist" type="text" name="name" /><span></span><br>
+		<input id="ajaxJSON" type="button" value="获取ajax的json数据"/>		
+	</body>
+</html>

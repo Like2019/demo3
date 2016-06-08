@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		
+function test(){
+	var s1 = "what are are are you are 弄啥哩";
+	var s2 = "how are you";
+	
+	/*
+	document.write(s1.indexOf("t")+"<br>");
+	document.write(s1.indexOf("Are")+"<br>");//are在s1出现的位置，（第一个字母的位置；）
+	document.write(s1.indexOf("how")+"<br>");
+	document.write(s1.lastIndexOf("are")+"<br>");
+	*/
+	
+	//document.write(s1.indexOf("Are")+"<br>");//are在s1出现的位置，（第一个字母的位置；）
+	//var t = s1.search("are1");
+	//var t = s1.search(/Are/i);
+	
+	//var t = s1.match("are");
+	
+	var t = s1.match(/are/ig);
+	
+	for(var i in t){
+		document.write(t[i]+"<br>");
+	}
+	
+	document.write("<br>"+t);
+	
+	 
+}
+
+
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="测试" onclick="test()"/>
+		 </form>
+	</body>
+</html>

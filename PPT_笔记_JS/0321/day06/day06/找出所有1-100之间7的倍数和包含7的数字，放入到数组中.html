@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		
+		function test(){
+			var arr=[];
+			
+			for(var i=1;i<=100;i++){//77
+				if(i%7==0 || i%10==7 || parseInt(i/10)==7){
+					arr.push(i);
+				}
+			}
+			
+			document.write(arr);
+			
+		}
+		
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="冒泡排序" onclick="test()"/>
+		 </form>
+	</body>
+</html>

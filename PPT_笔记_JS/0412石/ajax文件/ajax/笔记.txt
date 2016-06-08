@@ -1,0 +1,95 @@
+1.AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。
+同步：发出请求必须得到响应。没有响应就等待
+	请求1--->响应1---->请求2-----》响应2
+异步：发出请求，不用去响应；若有响应就处理响应。
+	请求1----》请求2----》请求3 ----》响应1 ----》响应2 ---》响应3
+	响应的过程交给浏览器的后台来监听，若浏览器监听到响应，
+	会通知浏览器处理。
+2.ajax的概念：局部刷新技术
+	客户端与服务器端，在不刷新整个页面的情况下，与服务器端进行异步通信
+	，从而对客户端的局部界面进行刷新
+	
+3.XMLHttpRequest:一般浏览器使用此对象，完成ajax操作
+  ActiveXObject:微软
+  1）创建ajax对象：兼容各个浏览器
+  function createAjax() {
+	var ajax;
+	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+		ajax=new XMLHttpRequest();
+	} else {// code for IE6, IE5
+		ajax=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	return ajax;
+  }
+  2)准备发送异步请求：
+	open(method,url,async)：
+			规定请求的类型、URL 以及是否异步处理请求。
+		method：请求的类型；GET 或 POST
+			GET：可以看到参数，传送的数据比较小，最大4k
+			POST：看不到参数，传送的数据比较大，表单提交和ajax提交
+		url：文件在服务器上的位置
+		async：true（异步）或 false（同步）
+  3)真正的发送请求到服务器
+		send(string) 将请求发送到服务器。
+			string：仅用于 POST 请求
+  4）ajax不断的监听服务器端响应的状态
+		onreadystatechange：事件，监听服务器状态的事件
+			存储函数（或函数名），每当 readyState 属性改变时，都会触发此事件。
+			0: 请求未初始化
+			1: 服务器连接已建立
+			2: 请求已接收
+			3: 请求处理中
+			4: 请求已完成，且响应已就绪
+		status：响应的状态码
+			200: "OK"
+			404: 未找到页面
+		每个浏览器，0,1,2,3这四个状态可能不一样，但是所有的浏览器都有第4个状态。
+	5）获取响应数据
+		responseText 获得字符串形式的响应数据。
+		responseXML	获得 XML 形式的响应数据。
+  
+	注：ajax程序，必须要在服务器环境下才能运行
+		判断tomcat是否安装成功：http://localhost:8080/ 出现tom猫
+		tomcat6.0.45/webapps/ROOT
+		http://10.0.163.90:8080/ajax.html
+		//ajax请求路径
+		http://10.0.163.90:8080/ajax/ajaxTest GET/POST:参数名为name 
+		http://10.0.163.90:8080/ajax/json GET 返回json数据
+		http://10.0.163.90:8080/ajax/checkName POST:参数名为name，只有一个用户admin
+		
+	前端ajax：只需要向服务器发送请求以及数据，无需关心请求怎么处理，怎么响应。
+	只关心，onreadystatechange事件以及响应状态（readyState）和status的变化。
+2.发送POST请求：
+	注意：
+		1）open的发送请求方式为POST
+		2）若post要提交数据，那么需要添加请求头 		
+			ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		3）发送数据时，将数据通过 "名=值&名=值..." 方式放入send方法
+			比如：ajax.send("name=zhangsan&age=23");
+		
+	var url = "http://localhost:8080/ajax/ajaxTest";
+	ajax.open("POST",url);
+	//post请求需要设置头：给传递的数据编码
+	ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	//3.真正的发送请求
+	ajax.send("name=zhangsan&age=23");
+	//4.ajax不断的监听服务器端响应的状态
+	ajax.onreadystatechange = handleMessage;
+
+3.json:javascript数据格式
+		[]:对象数组
+		{}:对象
+		键值对
+		[
+			{
+				name:"zhangsan",
+				age: 23,
+				sex:"man"
+			 },
+			 {
+				name:"zhangsan",
+				age:23,
+				sex:"man"
+			 }
+		]
+	

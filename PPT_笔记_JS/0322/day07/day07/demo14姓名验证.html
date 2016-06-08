@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+
+	function checkName(){
+		var userName = document.f.userName.value;
+		var str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+		
+		for(var i=0;i<userName.length;i++){
+			var ch = userName.charAt(i);
+			if(str.indexOf(ch)==-1){
+				alert("亲，名字只能包含数字、字母和下划线");
+				return;
+			}
+		}
+		
+		//isNaN:not a number;
+		
+		if(isNaN(userName.charAt(0))==false){
+			alert("亲，名字的首位不能是数字");
+			return;
+		}
+	}
+	
+</script>
+<body>
+	<form name="f">
+		<input type="text" name="userName"/>
+		<input type="button" value="验证用户名" onclick="checkName()"/>
+	</form>
+</body>
+</html>

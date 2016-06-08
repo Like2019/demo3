@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>倒计时</title>
+	<!--class 类-->
+	<style type="text/css">
+		.title{
+			font-size:14px;
+			font-weight:900;
+			background:pink;
+		}
+	</style>
+	<script type="text/javascript">
+		function test(){
+			//var titleArr = document.getElementsByClassName("title");
+			//alert(titleArr[0].tagName);
+			//innerHTML：读写属性（既能取出内容，又能修改内容）
+			//alert(document.getElementById("layer").innerHTML);
+			//document.getElementById("layer").innerHTML = "<hr>我在线的中间<hr>我在线后面";
+			//alert(document.getElementById("layer").outerHTML);
+			//alert(document.getElementById("layer").innerText);
+			document.getElementsByName("f");
+		}
+	</script>
+	</head>
+
+	<body>
+		<div id="layer">
+			<table name="f">
+				<tr>
+					<td class="title">姓名</td>
+					<td class="title">性别</td>
+					<td class="title">年龄</td>
+				</tr>
+			</table>
+		</div>
+		<form name="f">
+			<input type="text" name="txt" value="10"/>
+			<input type="button" value="倒计时" onclick="test()"/>
+		</form>
+
+	</body>
+
+</html>

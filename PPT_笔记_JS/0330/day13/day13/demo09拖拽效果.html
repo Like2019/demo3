@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+#divId{
+	position:absolute;
+	left:200px;
+	top:200px;
+	width:300px;
+	height:200px;
+	border:1px solid;
+}
+#title{
+	width:300px;
+	height:25px;
+	background-color:gray;
+}
+
+#content{
+	width:300px;
+	height:180px;
+}
+</style>
+</head>
+<script type="text/javascript">
+	var isDown = false;
+	var offsetLeft;
+	var offsetTop;	//按下鼠标，设置isDown，计算div的坐标和鼠标的坐标之间的差异；
+	function downTitle(event){
+		isDown = true;
+		var div = document.getElementById("divId");
+		//window.status = parseInt(div.currentStyle.left)+","+parseInt(div.currentStyle.top);
+		offsetLeft = event.clientX-parseInt(div.currentStyle.left);
+		offsetTop = event.clientY-parseInt(div.currentStyle.top);
+	}
+	
+	function upTitle(){
+		isDown = false;
+	}
+	
+	function moveTitle(event){
+		if(isDown){
+			var div = document.getElementById("divId");
+			div.style.left = (event.clientX-offsetLeft)+"px";
+			div.style.top = (event.clientY-offsetTop)+"px";
+		}
+	}
+	
+</script>
+
+<body onmousemove="moveTitle(event)" >
+	<div id="divId"  >
+		<table style="height:200px">
+			<tr>
+				<td id="title" onmousedown="downTitle(event)" onmouseup="upTitle()"  >标题</td>
+			</tr>
+			<tr>
+				<td id="content">ss</td>
+			</tr>
+		<table>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

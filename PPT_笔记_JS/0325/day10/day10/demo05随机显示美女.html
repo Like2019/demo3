@@ -1,0 +1,33 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+	<script type="text/javascript">
+		function test(){
+			//alert("sss");
+		//<img src="images/0.jpg" style="position:absolute;left:500px;top:200px"/>
+			var img = $("#mn");
+			
+			var left = parseInt(Math.random()*screen.availWidth);
+			var top = parseInt(Math.random()*screen.availHeight);
+			
+			img.style.left= left+"px";
+			img.style.top = top+"px";
+		}
+	</script>
+	</head>
+
+	<body>
+		
+		<form id="formId" action="" method="get">
+			<input type="button" value="随机产生美女" onclick="test()"/>
+		</form>
+		
+		<img id="mn" src="images/0.jpg" style="position:absolute;left:500px;top:200px"/>
+		
+	</body>
+
+</html>

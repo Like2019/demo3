@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+    //求出1-1/2+1/3-1/4…..1/100的结果
+
+		function calcY(){
+			var sum = 0;
+			for(var i=1;i<=100;i++){
+				if(i%2==0){
+					sum = sum-1/i;
+					document.write("-1/"+i);
+				}else{
+					sum = sum+1/i;
+					document.write("+1/"+i);
+				}
+			}
+			document.write("="+sum);
+		}
+		
+		//如何找问题(使用alert)
+		//先把问题聚焦在某个局部，然后再局部找。
+		function t(){
+			var x = document.f.x.value;
+			var y = document.f.y.value;
+			
+			alert(x);
+			alert(y);
+			if(x>y){
+				alert(x);
+			}
+			
+			var m =20;
+			for(var i=0;i<10;i++){
+				if(i%2==0){
+					m++;
+				}
+			}
+			alert(m);
+			
+			var n = m*3+20;
+			document.write(n);
+		
+		}
+		
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

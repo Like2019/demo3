@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+<style type="text/css">
+	#parent{
+		position:relative;
+		left:100px;
+		top:20px;
+		width:200px;
+		height:200px;
+		background-color:#0f0;
+	}
+	#t{
+		position:relative;
+		left:500px;
+		top:300px;
+		width:200px;
+		height:200px;
+		background-color:#f00;
+	}
+</style>
+<script type="text/javascript" language="JavaScript">
+function getPosition(obj){ 
+	var topValue= 0,leftValue= 0;
+	while(obj){//从当前元素，循环层级关系，向上一直找到根
+		leftValue= leftValue+ obj.offsetLeft;//offsetLeft:相对左边的坐标
+		topValue= topValue +obj.offsetTop; //offsetTop:相对顶端的坐标
+		obj= obj.offsetParent;   
+	}   
+	finalvalue = leftValue + "," + topValue;  
+	alert(finalvalue);
+	//return finalvalue; 
+}</script>
+</head>
+<body >
+	<div id="parent">
+		<p id="sonObj" style="background-color:red" onclick="getPosition(this)">测试OffsetParent属性</p>
+	</div>
+</body>
+  
+</html>

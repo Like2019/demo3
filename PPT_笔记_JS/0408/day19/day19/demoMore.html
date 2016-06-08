@@ -1,0 +1,33 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>欢迎注册1604的网站</title>
+	
+<script type="text/javascript" src="AJAXFeng.js"></script>
+<script type="text/javascript">
+
+function getMore(){
+	ajax1604("get","more.jsp","deal",null);
+}
+
+function deal(str){
+	alert(str.content);
+	document.getElementById("divId").innerHTML = document.getElementById("divId").innerHTML+str.content;
+	document.getElementById("moreId").style.display = "none";
+}
+
+</script>
+</head>
+
+<body>
+<input type="button" value="测试" onclick="getStudent()"/>
+<div id="divId">
+	金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，金三胖真胖，
+</div>
+<a id="moreId" href="#" onclick="getMore()">更多</a>
+
+
+</body>
+
+</html>

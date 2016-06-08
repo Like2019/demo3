@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+	#pwd{width:400px}
+</style>
+<script type="text/javascript" src="tools.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		document.getElementById("userType").onchange=function(){
+			getType();
+		}
+		document.getElementById("pwd").onblur=function(){
+			depwd();
+		}
+		document.getElementById("phoneNum").onblur=function(){
+			dePhoneNum();
+		}
+		document.getElementById("mail").onblur=function(){
+			deMail();
+		}
+		document.getElementById("repeatPwd").onblur=function(){
+			derepeatPwd();
+		}
+	}
+	function getType(){
+		var type=document.getElementById("userType").value;
+	}
+	function depwd(){
+		var pwd=document.getElementById("pwd").value;
+		var reg=/^[a-zA-Z\d][a-zA-Z\d]{5,19}$/;
+		if(reg.test(pwd)==false){
+			document.getElementById("pwdSpan").style.color="red";
+		}else{
+			document.getElementById("pwdSpan").style.color="black";
+		}
+	}
+	function dePhoneNum(){
+		var phoneNum=document.getElementById("phoneNum").value;
+		var reg=/^1\d{10}$/;
+		if(reg.test(phoneNum)==false){
+			document.getElementById("phoneSpan").style.color="red";
+			document.getElementById("phoneSpan").innerHTML="号码错误"
+		}else{
+			document.getElementById("phoneSpan").style.color="black";
+			document.getElementById("phoneSpan").innerHTML="用于工作人员与你联系";
+		}
+	}
+	function deMail(){
+		var mail=document.getElementById("mail").value;
+		var reg=/^[a-zA-Z\d]+@[a-zA-Z\d]+(\.[a-zA-Z\d]+)+$/;
+		if(reg.test(mail)==false){
+			document.getElementById("mailSpan").style.color="red";
+			document.getElementById("mailSpan").innerHTML="邮箱错误"
+		}else{
+			document.getElementById("mailSpan").style.color="black";
+			document.getElementById("mailSpan").innerHTML="√";
+		}
+	}
+	function derepeatPwd(){
+		var repeatPwd=document.getElementById("repeatPwd").value;
+		if(repeatPwd!=document.getElementById("pwd").value){
+			document.getElementById("rePwdSpan").style.color="red";
+			document.getElementById("rePwdSpan").innerHTML="两次密码不符"
+		}else{
+			document.getElementById("rePwdSpan").style.color="black";
+			document.getElementById("rePwdSpan").innerHTML="√";
+		}
+	}
+	
+
+</script>
+
+</head>
+
+<body>
+	<form>
+	我是：	<select id="userType">
+				<option>请选择用户类型</option>
+				<option value=1>vip</option>
+				<option value=2>normal</option>
+			</select><br/>
+登录账号：	<input type="text" id="userName"/><span>会员登录账号，一旦注册成功，不可修改</span><br/>
+	密码：	<input type="password" id="pwd"/><span id="pwdSpan">密码由6-20个英文字母（区分大小写）或数字组成</span><br/>
+确认密码：	<input type="password" id="repeatPwd"/><span id="rePwdSpan"></span><br/>
+采购商名称：<input type="text" id="purName"/><span id="purSpan">店铺机构公司名称</span><br/>
+联系人：	<input type="text" id="contantName"/><br/>
+	手机：	<input type="text" id="phoneNum"/><span id="phoneSpan">用于工作人员与你联系</span><br/>
+	邮箱：	<input type="text" id="mail"/><span id="mailSpan"></span><br/>
+	</form>
+</body>
+</html>

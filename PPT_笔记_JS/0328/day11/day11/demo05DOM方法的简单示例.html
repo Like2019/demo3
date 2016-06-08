@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<style type="text/css">
+#divId{
+	width:200px;height:100px;background-color:#f00;
+}
+</style>
+<script type="text/javascript">
+	function test(){
+		//创建一个段落标签对象(创建什么标签，写什么标签的名字)
+		var p = document.createElement("p");
+		//创建一个文本节点对象；
+		//var text = document.createTextNode("我在段落中间");
+		var text = document.createTextNode(document.getElementById("sayText").value);//把文本节点对象添加到段落标签对象里，即，文本是段落的子节点。
+		p.appendChild(text);
+		//把段落放在div里。
+		document.getElementById("divId").appendChild(p);
+	}
+</script>
+<body>
+	<div id="divId">
+	</div>
+	<input id="sayText" type="text" />
+	<input type="button" value="给div里添加一个段落" onclick="test()"/>
+</body>
+</html>

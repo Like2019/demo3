@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<style type="text/css">
+#grandpa{
+	width:200px;height:100px;background-color:#f00;
+}
+</style>
+<script type="text/javascript">
+
+	function grandpa(){
+		//alert(document.getElementById("grandpa").nodeName);
+		//alert(document.getElementById("grandpa").nodeType);
+	//alert(document.getElementById("grandpa").childNodes.length);
+		//childNodes ；是节点列表，nodeList类型。是集合；跟数组不是一回事，但是它有length属性，也可以通过下标的方式访问。
+		var subNodeList = document.getElementById("grandpa").childNodes;
+		var resultArr = removeTextNode1(subNodeList);
+	}
+	
+	//删除文本节点
+	function removeTextNode1(childArr){
+		var arr = new Array();
+		for(var i=0;i<childArr.length;i++){
+			if(childArr[i].nodeType!=3){//非文本节点
+				arr.push(childArr[i]);
+			}
+		}
+		return arr;
+	}
+
+</script>
+<body>
+	<div id="grandpa" name="pl" onclick="grandpa()">
+		第一行
+		<div></div>
+		第三行
+	</div>
+</body>
+</html>

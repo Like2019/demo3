@@ -1,0 +1,170 @@
+回顾：
+创建对象的3种方式
+1.普通方式
+	var obj = new Object();
+	obj.name="123";
+	obj.age = 23;
+	obj.run = function() {
+		return this.age + this.name + "";
+	}
+2.工厂模式
+	function createObject(name,age) {
+		var obj = new Object();
+		obj.name = name;
+		obj.age = age;
+		obj.run = function() {
+			return this.name  + this.age
+		}
+	} 
+3.构造函数模式
+	function Person(_name,_age,_sex) {
+		this.name = _name;
+		this.age = _age;
+		this.sex = _sex;
+		this.run = function() {
+			return this.age + this.name + this.sex;
+		}
+	}
+	var person = new Person("zhangsan",23,"man");
+	var person1 = new Person("zhangsan",23,"man");
+	
+	alert(person == person1);//不相等
+	alert(person.name == person1.name);//相等
+	alert(person.run == person1.run);//不相等
+	方法是引用类型
+	希望实例对象中的方法共享	
+2）原型模式：用途就是将所有实例对象中的属性和函数共享。
+		创建实例对象的每个构造函数中，都有一个prototype属性。
+	function Box(){};//构造函数，什么都不用写
+	//在构造函数中的属性，称为实例属性。
+	Box.prototype.name="zhangsan";//原型属性
+	Box.prototype.age = 23;
+	Box.prototype.run = function() {
+		return this.name  + this.age + "run...";
+	}
+	var box = new Box();
+	alert(box.name);
+	alert(box.age);
+	alert(box.run)
+2.1 获取原型对象
+	__proto__属性:原型对象实例，指向prototype对象
+	constructor：将prototype和构造函数关联，通过此属性可以找到构造函数
+2.2 原型模式的执行流程：
+	function Person() {
+		this.name="zhangsan";//实例属性
+		this.run = function() {	
+			return this.name + "run...";
+		}
+	}
+	Person.prototype.name = "lisi";
+	Person.prototype.run = function() {
+		return this.name ;
+	}
+	var person = new Person();
+	alert(person.name);
+	alert(person.run());
+	1）首先会先去查找构造函数中的实例属性和实例函数，如果有，那么返回。
+	2）若没有找到，那么回去到原型对象中查找属性和方法。
+2.2.1 若就想用原型对象中的属性，不用实例属性。	
+	删除实例属性：delete 对象.属性
+	var person = new Person();
+	delete person.name;//删除实例属性
+	alert(person.name);
+	alert(person.run());
+	能否删除原型的属性：不常用
+	delete Person.prototype.name;
+2.2.2 判断实例对象是否指向了构造函数的原型对象：isPrototypeOf；
+	语法：构造函数.prototype.isPrototypeOf(实例对象);
+	var p = new Person();
+	var obj = new Object();
+	alert(Person.prototype.isPrototypeOf(p));//p对象是否指向构造函数Person的原型对象
+2.2.3 判断实例对象中有某个属性 ： hasOwnProperty()；
+	语法：实例对象.hasOwnProperty("属性名")
+	注：判断实例对象中的属性，不是判断原型对象中的属性
+	var p = new Person();
+	//判断p中有name属性？
+	alert(p.hasOwnProperty("age"));
+2.2.4 如何判断只有原型有的属性？
+	in:运算符,不管实例中的属性还是原型中的属性，只要存在就返回true，
+	都不存在才返回false。
+	var p = new Person();
+	alert("name" in p);
+	先判断实例中没有，再用in判断
+	//obj:查找的对象
+	//property：属性名
+	//判断只有原型中有的属性
+	function isProperty(obj,property) {
+		return !obj.hasOwnProperty(property) && (property in obj);
+	}
+	具体事例：判断只有p的原型对象有name属性
+		var p = neew Person();
+		alert(isProperty(p,"name"));
+3.字面值的方式，创建原型对象
+	定义：只要赋值右边的不是表达式，那么等号右边的值都可以成为字面量
+	var a ="123";//字符串字面量
+	1）普通方式创建原型对象
+	//职工
+	function Emp() {
+		this.name = "zhangsan";	
+	}
+	Emp.prototype.age = 23;
+	Emp.prototype.run = function() {
+		return "run...";
+	}
+	var e = new Emp();
+	alert(e.name);
+	2）字面量方式：更能体现封装性：将属性和函数整合到一块，并隐藏属性
+	//单例模式，只有一个实例对象
+	var emp = {
+		name:"zhangsan",
+		age:23,
+		run:function() {
+			return "aaa";
+		}
+	};
+	emp = {
+		size:"111"
+	};
+	
+	
+
+
+
+	function Emp(){};
+	Emp.prototype = {
+		name:"zhangsan",
+		age:23,
+		run:function() {
+			return "run...";
+		}
+	};
+	var emp = new Emp();
+	alert(emp.name);
+	两种方式的区别：constructor不同
+		普通方式，constructor就是构造函数
+		字面量方式，constructor为Object
+	解决方案：在字面量中添加constructor属性。
+	Emp.prototype = {
+		constructor:Emp,
+		name:"zhangsan",
+		age:23,
+		run:function() {
+			return "run...";
+		}
+	};
+	3)若是将原型对象重写
+		//重写原型对象，会将之前的原型对象覆盖，它不会保留之前的属性和函数
+		Emp.prototype = {
+			sex:"man" 
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

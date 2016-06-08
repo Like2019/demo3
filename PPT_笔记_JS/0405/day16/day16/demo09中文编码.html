@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<title>onscroll事件</title>
+<meta charset = "utf-8"/>
+</head>
+
+
+<script type="text/javascript">
+
+function test1(){
+	//var str = "航";
+	//alert(str.charCodeAt(0));
+	for(var i=0;i<65536;i++){
+		document.write(String.fromCharCode(i)+"<br>");
+	}
+	//alert(String.fromCharCode(33322));
+	
+}
+
+
+</script>
+
+
+<body id="dianji">
+电话号码：<input type="text" id="mobilePhone" /><span id="phoneSpan"></span><br>
+身份证号码：<input type="text" id="sfz" /><span id="sfz"></span><br>
+<input type="button" value="test" onclick="test1()"/>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>倒计时</title>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+	<script type="text/javascript">
+		function test(){
+			//1、获得div对象；
+			//var layer1 = document.getElementById("layer1");
+			//var layer1 = $("#layer1");
+			var layer1 = $("div")[0];
+			//2、修改div对象的样式
+			layer1.style.width = "300px";
+			layer1.style.height = "200px";
+			layer1.style.backgroundColor = "gray";
+		}
+	</script>
+	</head>
+
+	<body>
+		
+		<form id="formId" action="" method="get">
+			<input type="text" name="txt" value="10" title="请输入姓名"/>
+			<input type="button" value="改变div的样式" onclick="test()"/>
+		</form>
+
+		<div id="layer1" style="background:#f00;width:400px;height:300px;" name="t" title="我在花中间">
+			<table id="001">
+				<tr>
+					<td class="title">姓名</td>
+					<td class="title">性别</td>
+					<td class="title">年龄</td>
+				</tr>
+			</table>
+		</div>
+		
+		
+	</body>
+
+</html>

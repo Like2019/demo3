@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	//setTimeout：等待多少毫秒后，调用某个函数f；只调用一次。
+	//setInterval：每隔多少毫秒后，调用某个函数f，无数次调用；
+	
+	function show(){
+		setTimeout("showHello()",5000);
+	}
+	
+	function showHello(){
+		alert("hello JS");
+		setTimeout("showHello()",5000);
+	}
+</script>
+
+<body >
+	<form name="f">
+		<input type="button" value="5秒后显示hello JS" onclick="show()"/>
+	</form>
+</body>
+</html>

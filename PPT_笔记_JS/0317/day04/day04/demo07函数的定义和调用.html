@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//定义一个函数,描述的是函数的逻辑，即函数完成一件事情的步骤。
+		function test(){
+			var a = 2;
+			var b = 3;
+			alert(a*b);
+		}
+		
+		//定义一个带参的函数;
+		//判断一个年是不是闰年
+		function isRun(year){//year是函数的参数，即已知条件
+			if((year%4==0 && year%100!=0)||(year%400==0)){
+				return true;//return后面跟的是函数的返回值，即结果
+			}else{
+				return false;//return后面跟的是函数的返回值，即结果
+			}
+		}
+		
+		
+		
+		function isRun1(){//year是函数的参数，即已知条件
+			var year = parseInt(document.f.num1.value);
+				var m =2;
+				var n=5;
+			   Math.pow(m,n);//调用内置函数
+			if(isRun(year)==true){
+				document.write(year+"是闰年");
+			}else{
+				document.write(year+"不是闰年");
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+			<input type="text" name="num1"/>年
+			<input type="button" value="点我" onclick="isRun1()"/>
+			
+			<input type="text" name="num2"/>年
+			<input type="button" value="点我" onclick="isRun1()"/>
+			
+		</form>
+	</body>
+	
+</html>

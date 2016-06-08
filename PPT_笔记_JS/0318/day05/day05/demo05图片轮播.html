@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		
+		var currentOrd =0;//当前图片的序号 3
+		
+		//改变界面上图片的路径（改变图片的内容）
+		function changeImg(){
+			currentOrd=currentOrd+1;
+			if(currentOrd>3){
+				currentOrd=1;
+			}
+			//把图片标签的路径进行了修改
+			document.getElementById("imgId").src= "images/mn0"+currentOrd+".jpg";
+			document.getElementById("imgId").style.width= "200px";
+			document.getElementById("imgId").style.height= "150px";
+			//为了下次改变图片路径时，使用。
+			
+		}
+		
+		function startImg(){
+			//每隔1秒，调用函数changeImg();
+			setInterval("changeImg()",3000);//定时器；
+		}
+		
+		function showImage(ord){
+			currentOrd = ord;//改变当前图片时，要修改当前图片的序号；
+			switch(ord){
+				case 1:document.getElementById("imgId").src="images/mn01.jpg";break;
+				case 2:document.getElementById("imgId").src="images/mn02.jpg";break;
+				case 3:document.getElementById("imgId").src="images/mn03.jpg";break;
+				default:alert("这个你也搞出来！");
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+			<table>
+				<tr>
+					<td>
+						<img  id="imgId" src="images/mn01.jpg"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" value="开始" onclick="startImg()" />
+						<input type="button" value="&nbsp;1&nbsp;" onclick="showImage(1)" />
+						<input type="button" value="&nbsp;2&nbsp;" onclick="showImage(2)"  />
+						<input type="button" value="&nbsp;3&nbsp;" onclick="showImage(3)"  />
+				</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

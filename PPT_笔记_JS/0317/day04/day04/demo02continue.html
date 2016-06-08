@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//求整数1～100的累加值，但要求跳过所有个位为3的数。 
+
+		function calcY(){
+			var sum = 0;
+			for(var i=1;i<=100;i++){
+				if(i%10==3){
+					continue;
+				}
+				sum = sum+i;
+			}
+			document.write(sum);
+		}
+		
+	</script>
+	<body>
+		<form name="f" >
+			<input type="text" name="num"  />
+			<input type="button" value="打印" onclick="calcY()"/>
+		</form>
+	</body>
+	
+</html>

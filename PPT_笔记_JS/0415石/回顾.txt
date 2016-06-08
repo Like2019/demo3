@@ -1,0 +1,108 @@
+实现继承的三种方式
+1.原型链继承
+function Animal() {//超类型 （基类 父类：其他语言）
+	this.name = "aaa";
+	this.age = 23;
+	this.aihao = [];
+	this.show = function() {
+		alert("show");
+	}
+}
+
+function Cat() {
+	this.interest = "抓老鼠";
+}
+//继承了超类型，那么具有父类的属性和方法
+Cat.prototype = new Animal();//Cat的原型对象指向了Animal的实例对象
+//问题：传递参数问题；属性为引用类型，会影响其他的实例对象
+var cat = new Cat();
+cat.aihao.push("aaa");
+var cat1 = new Cat();
+alert(cat1.aihao());
+
+2.冒充调用的方式
+	实际对象.call(冒充对象)
+function Animal(name,age) {
+	//实例属性
+	this.name = name;
+	this.age = age;
+	this.interest = [];
+}
+
+function Cat(name,age,clr) {
+	this.clr = clr;//cat特有的属性
+	//继承超类型的实例属性和实例方法
+	Animal.call(this,name,age);
+}
+
+var cat = new Cat();
+cat.interest.push("吃鱼");
+var cat1 = new Cat();
+alert(cat1.interest);
+//问题：无法获取父类型原型对象中的属性和函数
+3.组合继承方式：原型链 + 冒充的方式
+//实例对象：通过构造函数创建的对象 new Animal();
+function Animal(name,age) {
+	//属于某个实例对象
+	//实例属性
+	this.name = name;
+	this.age = age;
+	this.interest = [];
+	//实例函数
+	this.show = function() {
+	}
+}
+//所有实例对象共享的属性和函数
+Animal.prototype.aa = "aa";//原型属性
+Animal.prototype.run = function() {//原型函数
+	
+}
+
+function Dog(name,age,clr) {//默认原型对象为 Object
+	this.clr = clr;
+	Animal.call(this,name,age);
+}
+
+//原型链
+Dog.prototype = new Animal();
+//默认每个构造函数，继承了Object对象，即都有一个默认无参的构造函数
+
+function Input(_value,_id,_class,_type) {
+	this.ivalue = _value;
+	this.iid = _id;
+	this.iclass=_class;
+	this.itype=_type;
+}
+
+Input.prototype.init() {
+	//创建出input元素
+	var input = document.createElement("input");
+	input.value = this.ivalue;
+	input.id = this.iid ;
+	input.class = this.iclass;
+	input.type = this.itype;
+	this = input;
+}
+
+Input.prototype.getValue() {
+	return this.ivalue;
+}
+
+Input.prototype.setValue(val) {
+	this.ivalue = val;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

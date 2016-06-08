@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>欢迎注册1604的网站</title>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+<script type="text/javascript">
+
+var xhr = null;
+
+function getStudent(){
+	xhr = new XMLHttpRequest();
+	xhr.open("get","http://10.0.163.65:8080/web1604/getStudent.jsp?p=1",true);
+	xhr.onreadystatechange = show;
+	xhr.send(null);
+}
+
+function show(){
+	if(xhr.readyState==4 && xhr.status==200){
+		//定义了JSON格式的数据(其实就是对象)
+		var student= eval("("+ xhr.responseText+")");
+		
+		var tr = document.createElement("tr");
+		var tdName = document.createElement("td");
+		var tdSex = document.createElement("td");
+		var tdAge = document.createElement("td");
+		
+		tdName.innerHTML = student.name;
+		tdSex.innerHTML = student.sex;
+		tdAge.innerHTML = student.age;
+
+		tr.appendChild(tdName);
+		tr.appendChild(tdSex);
+		tr.appendChild(tdAge);
+		
+		//得到tbody;
+		var tbody = document.getElementById("t").childNodes[0];
+		tbody.appendChild(tr);
+	
+	}
+	
+}
+
+</script>
+</head>
+
+<body>
+<input type="button" value="测试" onclick="getStudent()"/>
+<table id="t"><tr>
+		<td>姓名</td>
+		<td>性别</td>
+		<td>年龄</td>
+	</tr>
+</table>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<title>onscroll事件</title>
+<meta charset = "utf-8"/>
+</head>
+
+
+<script type="text/javascript">
+
+function test1(){
+/*
+	var reg = new RegExp("^1");
+	var mobilePhone = document.getElementById("mobilePhone").value;
+	var phoneSpan = document.getElementById("phoneSpan");
+	if(reg.test(mobilePhone)==false){
+		phoneSpan.innerHTML = "电话号码不合法，第一位应该为1";
+	}else{
+		phoneSpan.innerHTML = "√";
+	}
+	*/
+	/*
+	var reg = new RegExp("1$");
+	var mobilePhone = document.getElementById("mobilePhone").value;
+	var phoneSpan = document.getElementById("phoneSpan");
+	if(reg.test(mobilePhone)==false){
+		phoneSpan.innerHTML = "最后一位应该为1";
+	}else{
+		phoneSpan.innerHTML = "√";
+	}
+	*/
+	
+	//var reg = new RegExp("ba*");
+	//var reg = new RegExp("ba+");
+//	var reg = new RegExp("a|b|c");
+	//{n} 精确匹配n次 ，/d{4}/  将匹配，出现连续4个d的字符串
+	//var reg = new RegExp("f{4}");
+	//var reg = new RegExp("s{4,8}");
+	//var reg = new RegExp("[a-z]");
+	
+	//末尾是数字
+//	var reg = /[0-9x]$/;
+	//匹配（查找有没有单词的首字母是m的）
+	//var reg = /\bm/;
+	//匹配（查找有没有单词的尾字母是m的）
+	//var reg = /m\b/;
+	//匹配（查找有没有单词的尾字母是pm的）
+	//var reg = /pm\b/;
+	
+	var mobilePhone = document.getElementById("mobilePhone").value;
+	alert(reg.test(mobilePhone));
+	//alert(reg.exec(mobilePhone));
+	
+	
+	
+}
+
+
+</script>
+
+
+<body id="dianji">
+电话号码：<input type="text" id="mobilePhone" /><span id="phoneSpan"></span><br>
+身份证号码：<input type="text" id="sfz" /><span id="sfz"></span><br>
+<input type="button" value="test" onclick="test1()"/>
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+
+	
+	<script type="text/javascript">
+		
+	function test(){
+	/*
+		//定义了一个字符串对象（变量）
+		var str1 = new String("how are you");
+		var temp = "伐木累";
+		var str11 = new String(temp);
+		
+		//String()进行类型转的
+		var str2 = String(123);
+		
+		var num = 123;
+		var str3 = String(num);
+		
+		document.write("typeof(str1)="+typeof(str1)+"<br>");
+		document.write("typeof(str11)="+typeof(str11)+"<br>");
+		document.write("typeof(str2)="+typeof(str2)+"<br>");
+		document.write("typeof(num)="+typeof(num)+"<br>");
+		document.write("typeof(str3)="+typeof(str3)+"<br>");
+		
+		document.write("str1="+str1+"<br>");
+		document.write("str11="+str11+"<br>");
+		document.write("str2="+str2+"<br>");
+		
+		document.write("num="+num+"<br>");
+		document.write("str3="+str3+"<br>");
+		
+		*/
+		
+		
+		
+		//把字符串123 转换成数字123，即Number完成了类型转换；
+		//var n = Number("123");
+		
+		
+		var str1 = "123";   var str2 = new String("123");  var str3 = String("123");
+		if(str1==str2){
+			document.write("str1==str2<br>");
+		}
+		if(str1===str2){
+			document.write("str1===str2<br>");
+		}
+		if(str2==str3){
+			document.write("str2==str3<br>");
+		}
+		if(str2===str3){
+			document.write("str2===str3<br>");
+		}
+		if(str1==str3){
+			document.write("str1==str3<br>");
+		}
+		if(str1===str3){
+			document.write("str1===str3<br>");
+		}
+
+		
+		
+		
+		
+		 
+	}
+
+
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="测试" onclick="test()"/>
+		 </form>
+	</body>
+</html>

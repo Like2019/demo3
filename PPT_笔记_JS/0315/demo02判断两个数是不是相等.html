@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	
+		function isEquals(){
+			var num1 = parseInt(document.f.num1.value);
+			var num2 = parseInt(document.f.num2.value);
+			if(num1!=num2){
+				alert("亲，两个数不想等，注意，我要交换两个数啦！");
+				var temp = num1;
+				num1 = num2;
+				num2 = temp;
+				
+				document.f.num1.value = num1;
+				document.f.num2.value = num2;
+				
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+		<input name="num1" type="text"/>
+		<input name="num2" type="text"/>
+		<input type="button" value="看看是不是偶数" onclick="isEquals()"/>
+		</form>
+	</body>
+	
+</html>

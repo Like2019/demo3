@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+
+window.onload=function(){
+	showCheckMa();
+	for(var i=1;i<=4;i++){
+		document.getElementById("img0"+i).onclick = function(){	showCheckMa();
+		}
+	}
+}
+
+//随机取出的验证码
+var str = "";
+function showCheckMa(){	
+	alert("dd");
+	var arr = new Array("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+	str = "";
+	//记录的是四个随机码对应的下标
+	var indexArr = [];//5 13 1 9
+	for(var i=0;i<4;i++){
+		//随机下标，随机数范围是：0-(arr.length-1)
+		var index = parseInt(Math.random()*arr.length);
+		str = str+arr[index];
+		//alert(str);
+		indexArr[i] = index;
+	}
+	
+	//给界面上显示，验证码的结果
+	for(var i=0;i<indexArr.length;i++){
+		var temp = indexArr[i];
+		if(temp<10){
+			document.getElementById("img0"+(i+1)).src="img/"+temp+".png";
+		}else{
+			document.getElementById("img0"+(i+1)).src="img/1_"+(temp-8)+".jpg";
+		}
+	}
+}
+
+function checkCheckMa(){
+	//1、得到用户输入的验证码；
+	var userCheckMa = document.getElementById("checkMaId").value;
+	//2、和随机取出来的验证码对比；
+	if(userCheckMa.length!=4){
+		document.getElementById("showCheckResult").innerHTML="验证码有误";
+		return;
+	}
+	var reg = new RegExp(userCheckMa,"ig");
+	//if(userCheckMa!=str){
+	if(!reg.test(str)){
+		document.getElementById("showCheckResult").innerHTML="验证码有误";
+	}else{
+		document.getElementById("showCheckResult").innerHTML="验证码正确";
+	}
+}
+	
+</script>
+<body >
+验证码：<input type="text" id="checkMaId" onblur="checkCheckMa()"><img id="img01" src=""/><img id="img02" src=""/><img id="img03" src=""/><img id="img04" src=""/><br>
+<span id="showCheckResult"></span>
+
+</body>
+</html>

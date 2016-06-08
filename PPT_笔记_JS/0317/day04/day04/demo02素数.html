@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//素数：质数，只能被1和它本身整除的正数。
+		// num1=9
+		// 2
+		function calcY(){
+			var isSu=true;//isSu表示当前是不是素数，假定是素数；这种变量习惯性叫做标志；
+			var num1 = parseInt(document.f.num.value);//4
+			if(num1==1){
+				//document.write(num1+"不是素数");
+			}else{
+				var count = 0;//记录能被num1整除的数的个数;
+				for(var i=2;i<=num1-1;i++){
+					if(num1%i==0){
+						isSu = false;
+						break;
+					}
+				}
+				if(isSu==true){
+					document.write(num1+"是素数");
+				}else{
+					document.write(num1+"不是素数");
+				}
+			}
+		}
+		/*
+		function calcY(){
+			var num1 = parseInt(document.f.num.value);//4
+			if(num1==1){
+				//document.write(num1+"不是素数");
+			}else{
+				var count = 0;//记录能被num1整除的数的个数;
+				for(var i=2;i<=num1-1;i++){
+					if(num1%i==0){
+						document.write(num1+"不是素数");
+						break;
+					}
+				}
+				if(i==num1){
+					document.write(num1+"是素数");
+				}
+			}
+		}
+		*/
+		/*法二
+		function calcY(){
+			var num1 = parseInt(document.f.num.value);//4
+			if(num1==1){
+				document.write(num1+"不是素数");
+			}else{
+				var count = 0;//记录能被num1整除的数的个数;
+				for(var i=1;i<=num1;i++){
+					if(num1%i==0){
+						count++;//3
+					}
+				}
+				if(count==2){
+					document.write(num1+"是素数");
+				}else{
+					document.write(num1+"不是素数");
+				}
+			}
+		}
+		*/
+	</script>
+	<body>
+		<form name="f" >
+			<input type="text" name="num"  />
+			<input type="button" value="打印" onclick="calcY()"/>
+		</form>
+	</body>
+	
+</html>

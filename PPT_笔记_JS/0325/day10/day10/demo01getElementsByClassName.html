@@ -1,0 +1,40 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>倒计时</title>
+	<!--class 类-->
+	<style type="text/css">
+		.title{
+			font-size:14px;
+			font-weight:900;
+			background:pink;
+		}
+	</style>
+	<script type="text/javascript">
+		function test(){
+			var titleArr = document.getElementsByClassName("title");
+			alert(titleArr.length);
+			alert(titleArr[0].innerHTML);
+			alert(titleArr[1].innerHTML);
+			alert(titleArr[2].innerHTML);
+		}
+	</script>
+	</head>
+
+	<body>
+		<form name="f">
+			<input type="text" name="txt" value="10"/>
+			<input type="button" value="倒计时" onclick="test()"/>
+			<table>
+				<tr>
+					<td class="title">姓名</td>
+					<td class="title">性别</td>
+					<td class="title">年龄</td>
+				</tr>
+			</table>
+		</form>
+
+	</body>
+
+</html>

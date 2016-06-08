@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	//alert("alert是window对象的方法（函数）");
+	function deleteDemo(){
+		if(window.confirm("亲，您确认要删除吗？")==true){
+			alert("亲，已成功删除！");
+		}else{
+			alert("亲，没删！");
+		}
+	}
+	
+	function deleteNews(){
+		if(window.confirm("亲，您确认要删除吗？")==true){
+			alert("亲，已成功删除！");
+		}else{
+			alert("亲，没删！");
+		}
+	}
+	
+	
+</script>
+
+<body>
+	<form name="f">
+		<table>
+			<tr>
+				<td>
+					<input type="button" value="删除两会" onclick="deleteDemo()" />	
+				</td>
+			</tr>
+			<tr>
+				<td>
+					两会开完了1<a href="#" onclick="deleteNews()">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					两会开完了2<a href="#" onclick="deleteNews()">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					两会开完了3<a href="#">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					两会开完了4<a href="#">删除</a>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

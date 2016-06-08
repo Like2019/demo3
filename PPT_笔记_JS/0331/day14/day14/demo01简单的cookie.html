@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+	<link id="cssId" type="text/css" rel="styleSheet" href="css/redSkin.css"/>
+
+	<script type="text/javascript">
+function getCookie(){
+	var str = document.cookie;
+	//window.status = str;
+	alert(str);
+}
+
+function saveCookie(){
+	document.cookie="name=jzm";
+}
+
+</script>
+<body onload ="getCookie()">
+
+	<input type="button" value="保存cookie" onclick="saveCookie()" />
+
+</body>
+
+</html>

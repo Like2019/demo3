@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//身高-105 上下浮动5公斤是正常；
+		function calcBody(){
+			var height = parseFloat(document.f.heightNum.value);  //175
+			var weight = parseFloat(document.f.weightNum.value);//69
+			
+			var standardWeight = height-105;//70
+			if(weight>=standardWeight-5 && weight<=standardWeight+5){
+				document.f.result.value="亲，您很标准!";
+			}else{
+				document.f.result.value="亲，您还不确定!";
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+		身高：<input name="heightNum" type="text"/>
+		体重：<input name="weightNum" type="text"/>
+		<input type="button" value="BMI" onclick="calcBody()"/>
+		<input name="result" type="text"/>
+		</form>
+	</body>
+	
+</html>

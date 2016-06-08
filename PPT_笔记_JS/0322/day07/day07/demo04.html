@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		
+function test(){
+	var s1 = "how are are you";
+	
+	//var s2 = s1.replace("are","old are");
+	var s2 = s1.replace(/are/gi,"old are");
+	
+	document.write("<br>"+s1);
+	document.write("<br>"+s2);
+	 
+}
+
+
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="测试" onclick="test()"/>
+		 </form>
+	</body>
+</html>

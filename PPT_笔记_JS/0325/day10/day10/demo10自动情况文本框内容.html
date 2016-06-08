@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+
+	
+	function clearText(){
+		if(document.f.userName.value=="亲，请输入用户名"){
+			document.f.userName.value="";
+		}
+	}
+	
+	function addText(){
+		if(document.f.userName.value==""){
+			document.f.userName.value="亲，请输入用户名";
+		}
+	}
+	
+</script>
+<body>
+	<form name="f">
+		<!--onfocus:表示获得焦点，光标进入都文本框
+			onblur:表示失去焦点，光标离开文本框
+		-->
+		<input type="text" name="userName" value="亲，请输入用户名" onfocus="clearText()" onblur="addText()"/>
+	</form>
+</body>
+</html>

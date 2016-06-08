@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+		function calcY(){
+			//1、得到两个文本框的值（两个操作数）
+			var num1 = parseFloat(document.f.num1.value);
+			var num2 = parseFloat(document.f.num2.value);
+			//2、根据下拉框选择的运算符进行相应运算
+			var oper = document.f.operator.value;
+			var result;
+			switch(oper){
+				case "+":result = num1+num2;break;
+				case "-":result = num1-num2;break;
+				case "*":result = num1*num2;break;
+				case "/":result = num1/num2;break;
+				default:;
+			}
+			//3、把结果显示在文本框里。
+			document.f.result1.value = result;
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+		<input name="num1" type="text"/>
+		<select name="operator">
+			<option value="+">加法</option>
+			<option value="-">减法</option>
+			<option value="*">乘法</option>
+			<option value="/">除法</option>
+		</select>
+		<input name="num2" type="text"/>
+		<input type="button" value="=" onclick="calcY()"/>
+		<input name="result1" type="text"/>
+		</form>
+	</body>
+	
+</html>

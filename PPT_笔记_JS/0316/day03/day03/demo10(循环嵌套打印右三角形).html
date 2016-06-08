@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+	/*           外层循环变量的取值  空格数    星号数
+		     *         i=1;           4           1
+		    **         i=2;           3           2
+		   ***         i=3            2           3
+		  ****
+		 *****
+	*/
+	
+		function calcY(){
+			for(var i=1;i<=5;i++){
+				//1、打印空格
+				for(var j=1;j<=5-i;j++){
+					document.write("　");
+				}
+				//2、打印星号
+				for(var m=1;m<=i;m++){
+					document.write("啊");
+				}
+				document.write("<br>");
+			}
+		}
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

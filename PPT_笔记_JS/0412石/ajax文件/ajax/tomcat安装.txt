@@ -1,0 +1,12 @@
+1.安装jdk：java development kit 
+	双击exe文件，一直下一步，直到安装完成:默认：c://program Files/java/
+	配置环境变量：将安装jdk目录：path = "c://program Files/java/jdk1.8.0_40/bin"
+								java_home="c://program Files/java/jdk1.8.0_40"
+	验证是否成功：
+		window + r:输入cmd ，出现黑框
+					输入java 
+					输入javac
+					若能打印说明成功，出现不是内部命令，失败
+2.执行tomcat：
+	打开头tomcat文件下bin目录
+	点击执行startup.bat

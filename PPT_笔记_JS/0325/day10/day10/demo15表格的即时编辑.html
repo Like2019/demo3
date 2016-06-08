@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+
+	<script type="text/javascript" src="1604JQuery.js"></script>
+	<script type="text/javascript">
+		function showTxt(){
+			$("#userName").style.display = "block";
+			$("#userName").focus();
+		}
+		
+		function changeTxt(){
+			$("#userNameTD").innerHTML = $("#userName").value;
+			$("#userName").style.display = "none";
+		}
+	</script>
+<body >
+	<form name="f">
+		<table border="1" style="width:500px">
+			<tr>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>年龄</td>
+			</tr>
+			<tr>
+				<td id="userNameTD" onclick="showTxt()"><input id="userName" style="display:none" type="text" onblur="changeTxt()" />
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

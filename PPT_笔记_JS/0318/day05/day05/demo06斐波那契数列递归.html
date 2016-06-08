@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//  num1 num2  num3
+		//1    1      2       3   5   8   13   21
+//  	     num1   num2   num3
+			   
+			
+		var count = 2;//当前计算到第几个数了
+		var maxCount;//一共显示多少个数；
+			
+		function f(num1,num2){//num1=1,num2=1 
+			count++;
+			var num3 = num1+num2;//num3=2 
+			document.write(num3+"&nbsp;");
+			if(count==maxCount){
+				return;
+			}else{
+				num1 = num2; //num1=1
+				num2 = num3; //num2=2;
+				f(num1,num2);
+			}
+		}
+		
+		
+		function calc(){
+		    maxCount= document.f.num.value;
+			document.write("1 &nbsp; 1&nbsp; ");
+			f(1,1);
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+			<input type="text" name="num"/>
+			<input type="button" value="显示" onclick="calc()" />
+			<input type="text" name="result"/>
+	
+		</form>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	
+	<script type="text/javascript">
+		
+		function test(){
+			var arr=[12,8,3,18,45,21,98];
+			
+			for(var i=0;i<parseInt(arr.length/2);i++){
+				var temp = arr[i];
+				arr[i] = arr[arr.length-1-i];
+				arr[arr.length-1-i] = temp;
+			}
+			
+			document.write(arr);
+			
+		}
+		
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="冒泡排序" onclick="test()"/>
+		 </form>
+	</body>
+</html>

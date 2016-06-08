@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	/*
+			521
+			5= parseInt(521/100);
+			2 =parseInt(521/10)%10;
+			1 = 521%10;
+			*/
+		function calcY(){
+			for(var i=100;i<=999;i++){
+				//1、得到每个位上的数；
+				var bai = parseInt(i/100);
+				var shi = parseInt(i/10)%10;
+				var ge = i%10;
+				//2、判断
+				if(bai*bai*bai+shi*shi*shi+ge*ge*ge == i){
+					document.write(i+"<br>");
+				}
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f" >
+		
+			<input type="button" value="打印" onclick="calcY()"/>
+		</form>
+	</body>
+	
+</html>

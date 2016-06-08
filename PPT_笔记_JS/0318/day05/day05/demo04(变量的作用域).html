@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		var global_m=20;//全局变量
+	
+		//arguments数组保存着所有的参数；
+		function test(){
+		
+			alert("test");
+			var t =2;//变量t定义在函数的内部，叫作局部变量，t的有效范围是函数内部
+			alert("global_m="+global_m);
+			test1();
+			
+		}
+		
+		function test1(){
+			var f= 20;//局部变量
+			alert("test1");
+			alert("global_m="+global_m);
+			//alert(t);
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+			<input type="button" value="&nbsp;1&nbsp;" onclick="test()" />
+		</form>
+	</body>
+</html>

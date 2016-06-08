@@ -1,0 +1,98 @@
+<html>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<head>
+		<script type="text/javascript" src="demo1.js"></script>
+		<script  type="text/javascript">
+			//列表展示
+			var dvds = [];
+			window.onload = function() {
+				var dvd1 = new DVD(1,"水浒传",1,2,'2013-12-22',"有库存");
+				var dvd2 = new DVD(2,"红楼梦",10,5,'2015-11-23',"有库存");
+				var dvd3 = new DVD(3,"西游记",0,40,'2016-02-22',"无库存");
+				var dvd4 = new DVD(4,"三国演义",15,40,'2014-03-10',"有库存");
+				dvds.push(dvd1);
+				dvds.push(dvd2);
+				dvds.push(dvd3);
+				dvds.push(dvd4);
+				var t1 = document.getElementById("t1");
+				for(var i=0;i<dvds.length;i++) {
+					var tbody = t1.children[0];
+					var tr = document.createElement("tr");
+					var noTd = document.createElement("td");
+					noTd.innerHTML = dvds[i].dno;
+					var nameTd = document.createElement("td");
+					nameTd.innerHTML = dvds[i].dname;
+					var leftTd = document.createElement("td");
+					leftTd.innerHTML = dvds[i].dleft;
+					var lendNoTd = document.createElement("td");
+					lendNoTd.innerHTML = dvds[i].dlendNo;
+					var lendTimeTd = document.createElement("td");
+					lendTimeTd.innerHTML = dvds[i].dlendTime;
+					var stateTd = document.createElement("td");
+					stateTd.innerHTML = dvds[i].state;
+					var handleTd = document.createElement("td");
+					//操作..
+					//创建按钮
+					var lendButton = document.createElement("button");
+					lendButton.innerHTML = "借出";
+					//将下标保存到button中。
+					lendButton.setAttribute("index",i);
+					//借出事件
+					lendButton.onclick = function() {
+						var ind = this.getAttribute("index");
+						dvds[ind].lendDVD();//借出成功
+						updateDVD(dvds[ind],this);
+					}
+					
+					var returnButton = document.createElement("button");
+					returnButton.innerHTML = "归还";
+					//归还事件
+					returnButton.setAttribute("index",i);
+					returnButton.onclick = function() {
+						//获取下标
+						var index = this.getAttribute("index");
+						dvds[index].returnDVD();
+						updateDVD(dvds[index],this);
+					}
+					
+					handleTd.appendChild(lendButton);
+					handleTd.appendChild(returnButton);
+					
+					tr.appendChild(noTd);
+					tr.appendChild(nameTd);
+					tr.appendChild(leftTd);
+					tr.appendChild(lendNoTd);
+					tr.appendChild(lendTimeTd);
+					tr.appendChild(stateTd);
+					tr.appendChild(handleTd);
+					tbody.appendChild(tr);
+				}
+			}
+			
+			function updateDVD(dvd,obj) {
+				//获取obj的父节点tr
+				var tr = obj.parentNode.parentNode;
+				var childs = tr.childNodes;
+				childs[2].innerHTML = dvd.dleft;
+				childs[3].innerHTML = dvd.dlendNo;
+				childs[4].innerHTML = dvd.dlendTime;
+				childs[5].innerHTML = dvd.state;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<table id="t1" border="1" cellpadding="5" cellspacing="0" align="center">
+			<tr>
+				<th>编号</th>
+				<th>名称</th>
+				<th>剩余本数</th>
+				<th>借出次数</th>
+				<th>借出时间</th>
+				<th>状态</th>
+				<th>操作</th>
+			</tr>
+		</table>
+	</body>
+
+</html>

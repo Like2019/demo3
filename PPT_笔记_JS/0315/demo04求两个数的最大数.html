@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	
+		function maxNum(){
+			var num1 = parseInt(document.f.num1.value);
+			var num2 = parseInt(document.f.num2.value);
+			if(num1>num2){
+				alert("亲，"+num1+"大！");
+			}else{
+				alert("亲，"+num2+"大！");
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+		<input name="num1" type="text"/>
+		<input name="num2" type="text"/>
+		<input type="button" value="看看谁最大" onclick="maxNum()"/>
+		</form>
+	</body>
+	
+</html>

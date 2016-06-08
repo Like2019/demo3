@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+<script type="text/javascript">
+	/*var str='亲';
+	alert(str);
+	var str1=new String("hello Siri");
+	alert(str1);
+	alert(str1.length);//空格也算是一个长度
+	alert(str1.charAt(1));
+	alert(str1.charCodeAt(1));
+	alert(String.fromCharCode(104,101,108,108,111));*/
+	/*var str="how are are you";
+	//document.write(str.replace("are","old are"));
+	document.write(str.replace(/are/gi,"old are"));*/
+	/*var str="Visit W3School!";
+	var str1=str.match("W3School");
+	document.write(str.search(/w3school/i));
+	document.write(str1);*/
+	//var str1="123"相等
+	var str3=[123];
+	//alert(str1);
+	//var str1=new Array("123");
+	//var str1=Array(123);
+	var str1=new String("123");
+	var str2=String("123");
+	//var str2=123;
+	if(str1==str2){
+		alert("相等");
+	}
+	else{
+		alert("不相等");
+	}
+	if(str1==str3){
+		alert("相等");
+	}
+	else{
+		alert("不相等");
+	}
+	if(str2==str3){
+		alert("相等");
+	}
+	else{
+		alert("不相等");
+	}
+</script>
+<body>
+</body>
+</html>

@@ -1,0 +1,36 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+</head>
+
+<script>
+window.onload=function(){
+	document.getElementById("btn").onclick=test;
+}
+
+function test(){	
+	//1、随机获得验证码
+	var imgArr = ["1","2","3","4","5","a","b","c","A","B","C"];
+	var num = parseInt(Math.random()*11);//0-10
+	var imgPath="img/"+imgArr[num]+".jpg";
+	if(num>7){
+	  imgPath="img/"+imgArr[num]+"01.jpg";
+	}
+	document.getElementById("img01").src=imgPath;
+	
+	
+	//var reg = /[a-zA-Z]/;
+	//验证码的正则
+	var reg = /^[a-z\d]{4}$/i;
+	var str = document.getElementById("txt").value;
+	alert(reg.test(str));	
+}
+</script>
+<body>
+	<input type="text" id="txt"/><img id="img01" src=""/>
+	<input id="btn" type="button" value="测试"/>
+</body>
+</html>

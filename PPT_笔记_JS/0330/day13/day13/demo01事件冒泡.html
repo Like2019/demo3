@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>倒计时</title>
+<style type="text/css">
+#baby{
+	width:100px;
+	height:100px;
+	background-color:#f00;
+}
+#father{
+	width:200px;
+	height:200px;
+	background-color:#0f0;
+}
+#grandpa{
+	width:300px;
+	height:300px;
+	background-color:#00f;
+}
+</style>	
+<script type="text/javascript" src="1604JQuery.js"></script>
+<script type="text/javascript">
+
+function clickBody(){
+	alert("老祖宗被打了");
+}
+
+function clickGrandpa(){
+	alert("爷爷被打了");
+}
+
+function clickFather(){
+	alert("爸爸被打了");
+}
+
+function clickBaby(){
+	alert("我被打了");
+}
+</script>
+</head>
+
+<body onclick="clickBody()">
+	<div id="grandpa" onclick="clickGrandpa()">
+		<div id="father" onclick="clickFather()">
+			<div id = "baby" onclick="clickBaby()">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+面向对象和原型
+	面向过程：这件事改怎么做
+	面向对象：万事万物皆对象
+		对象组成的集合：类别
+		开车去拉萨：车 人
+			人.开车（车）{
+				车.pao(拉萨);
+			}
+	将大象装进冰箱：
+	面向过程思维：
+		1）打开门
+		2）将大象塞进去
+		3）关上门
+	面向对象的思维：
+		冰箱{
+			打开（）{
+				//打开门
+			}
+			关闭（） {
+				//关闭门
+			}
+		}
+		
+		
+		大象{
+			走（冰箱）{
+				//走进冰箱
+			}
+		}
+		
+		冰箱 box ;创建冰箱对象
+		大象.走（box）;
+		
+	目前流行的版本：没有类的概念，javascript面向对象是非正统的怪异的。
+	
+1）如何去使用和创建对象：
+	内置对象：Array,Number,String
+		var arr = new Array(1,2,3);
+	创建对象的方式：
+	①、普通的创建方式
+		var obj = new Object();//创建对象
+		//给对象添加属性和函数
+		//方式：对象.属性 对象.函数
+		obj.name = "zhangsan";
+		obj.age = 23;
+		obj.eat = function(){
+			alert("eatting");
+		}
+		obj.getAge(){
+			return this.age;
+		}
+		obj.sleep = function() {
+			alert("slepping");
+		}
+		//调用方式：对象.属性 对象.函数
+		alert(obj.name);
+		alert(obj.age);
+		obj.eat();//对象.函数();
+		obj.getAge();
+	   问题：若创建多个对象的时候，会出现大量的代码
+	   解决：使用工厂产生对象
+	② 使用工厂产生对象：工厂模式
+		对以上方式的封装
+		//使用工厂模式创建对象
+		function createObject(name,age){
+			var obj = new Object();
+			alert(this);
+			obj.name = name;
+			obj.age = age;
+			obj.show = function() {
+				return this.name + this.age + "run。。。"
+			}
+			return obj;
+		}
+		var obj = createObject("zhangsan",23);
+		alert(obj.name);
+		alert(obj.show());
+		
+		var obj1 = createObject("lisi",25);
+		alert(obj1.name);
+		alert(obj1.show());
+		
+		问题：无法分辨创建的对象是谁的对象
+		alert(obj instanceof Object);
+		//判断某个对象是谁的对象
+		alert(obj instanceof Object);//若是返回true，否则 false
+		alert(obj1 instanceof Object);//若是返回true，否则 false
+		解决方案：使用构造函数
+	③、使用构造函数
+		function Person(name,age,sex) {
+			alert(this);
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.introduce = function() {
+				return "name:" + this.name + ";age:" + age + ";sex:" + sex;
+			}
+		}
+		//如何调用构造函数：使用new关键字调用构造函数
+		var p1 = new Person("zhangsan",33,"man");
+		alert(p1.name);
+		alert(p1.age);
+		alert(p1.introduce());
+		
+		PS：this:当前对象，在哪个对象函数中，代表哪个对象
+		
+		构造函数和普通函数的区别：
+			1）构造函数，主要作用为创建对象，所以构造函数返回创建的对象
+			2）方法名：构造函数，约定俗称，首字母大写
+						普通函数，首字母小写
+			3）调用方式不同：构造函数，要使用new关键字调用
+		
+		构造函数是如何创建出对象的？
+			1）构造函数虽然没有 new Object(),但是后台会自动执行 var obj = new Object();
+			2）构造函数虽然没有返回值，但是后台会自动返回创建的对象。
+		
+		
+		
+		
+		
+		
+		

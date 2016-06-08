@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>day7</title>
+</head>
+	<style type="text/css">
+	#layer{
+		background-color:oldlace;
+		width:200px;
+		height:250px;
+		position:absolute;
+		left:200px;
+		top:100px;
+		display:none;
+	}
+	</style>
+
+	<script type="text/javascript">
+		function sendTie(){
+			document.getElementById("layer").style.display="block";
+		}
+		
+		function closeLogin(){
+			document.getElementById("layer").style.display="none";
+		}
+	</script>
+	<body>
+		<div id="layer" class="divClass1">
+			<a href="#" onclick="closeLogin()">关闭</a>
+		</div>
+		<form name="f">
+			<input type="button" value="发帖" onclick="sendTie()" />
+		</form>
+		
+	</body>
+
+</html>

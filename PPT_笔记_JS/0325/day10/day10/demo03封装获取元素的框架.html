@@ -1,0 +1,70 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>倒计时</title>
+	<!--class 类-->
+	<style type="text/css">
+		.title{
+			font-size:14px;
+			font-weight:900;
+			background:pink;
+		}
+		
+		#layer1{
+			
+		}
+		
+		input{
+		
+		}
+	</style>
+	<script type="text/javascript" src="1604JQuery.js"></script>
+	<script type="text/javascript">
+	/*
+		    1)	请封装一个名字为$的函数，用于获取元素
+			2)	$(“#box”) 用于获取id名为box的DOM元素
+			3)	$(“.active”) 用于获取class名为active的DOM元素
+			4)	$(“input”) 用于获取标签名为input的DOM元素
+	*/
+		function test(){
+			var arr = $("div");
+			//alert($("div")[0].id);
+			//alert($("#formId").method);
+			//arr[0].innerHTML="我在div中";
+			arr[0].title = "我在马路中间";
+			alert(arr[0].title);
+			
+		}
+	</script>
+	</head>
+
+	<body>
+		
+		<form id="formId" action="" method="get">
+			<input type="text" name="txt" value="10" title="请输入姓名"/>
+			<input type="button" value="倒计时" onclick="test()"/>
+		</form>
+
+		<div id="layer1" style="width:300px" name="t" title="我在花中间">
+			<table id="001">
+				<tr>
+					<td class="title">姓名</td>
+					<td class="title">性别</td>
+					<td class="title">年龄</td>
+				</tr>
+			</table>
+		</div>
+		<div id="layer2">
+			<table name="f" id="001"  sex="男">
+				<tr>
+					<td class="title">姓名</td>
+					<td class="title">性别</td>
+					<td class="title">年龄</td>
+				</tr>
+			</table>
+		</div>
+		
+	</body>
+
+</html>

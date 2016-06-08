@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+#divId{
+	position:absolute;
+	left:200px;
+	top:200px;
+	width:300px;
+	height:200px;
+	border:1px solid;
+}
+#title{
+	width:300px;
+	height:25px;
+	background-color:gray;
+}
+
+#content{
+	width:300px;
+	height:180px;
+}
+</style>
+</head>
+<script type="text/javascript">
+	window.onload = function(){
+		document.getElementById("btn1").addEventListener("click",function(){test("江泽民")},false);
+		
+		document.getElementById("btn1").addEventListener("click",f,false);
+	}
+	
+	function f(){
+		alert("被点了！");
+	}
+	
+	function test(str){
+		alert(str+"被点了！");
+	}
+	
+	
+	function test2(str){
+		alert(str+"被点了！");
+	}
+	
+	function removeBtn1Test2(){
+		alert("调了");
+		document.getElementById("btn1").removeEventListener("click",f);
+	}
+	
+</script>
+3
+	<input id="btn2" type="button" value="删除第二个函数" onclick="removeBtn1Test2()"  />
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

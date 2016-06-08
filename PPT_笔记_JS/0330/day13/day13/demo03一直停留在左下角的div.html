@@ -1,0 +1,30 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#box{ height:50px; width:200px; background:#666; position:absolute; left:0px; top:0px;}
+</style>
+</head>
+<body style="height:9000px;">
+ 
+<div id="box" >我永远在此</div>
+
+ <br>12<br>23<br>34<br>56<br>67<br><br><br><br><br>80<br><br>
+ <br>12<br>23<br>34<br>56<br>67<br><br><br><br><br>80<br><br>
+ <br>12<br>23<br>34<br>56<br>67<br><br><br><br><br>80<br><br>
+<script language="javascript">
+
+window.onscroll = function(e){
+	var e =e || window.event;
+	var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;
+	 
+	var box = document.getElementById('box');
+	
+	box.style.top = scrolltop+'px';
+}
+</script>
+ 
+</body>
+</html>

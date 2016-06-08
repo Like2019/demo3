@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>倒计时</title>
+<script type="text/javascript">
+var xhr = null;
+function  getHttpRequest()
+{
+    if (window.ActiveXObject){
+           return new ActiveXObject("Microsoft.XMLHttp");
+  	 }
+       else
+	 {
+          return new XMLHttpRequest();
+     } 
+}
+
+function checkUserPass(){
+	xhr = getHttpRequest();
+	xhr.open("post","checkUserPass.jsp",true);
+	xhr.setRequestHeader("Content-Type",
+			    "application/x-www-form-urlencoded"); 
+	xhr.onreadystatechange = fun;
+	var userName = document.getElementById("userId").value;
+	var pass = document.getElementById("passId").value;
+	var sendStr = "userName="+userName+"&pass="+pass;
+	xhr.send(sendStr);
+}
+
+function fun(){
+	if(xhr.readyState == 4&&xhr.status==200){
+		var result = xhr.responseText;
+		var reg = /\s+/;
+		result = result.replace(reg,"");
+		alert(result);
+		if(result == "true"){
+			document.getElementById("welcome").innerHTML = "亲，登录成功！";
+			//可以考虑把登录信息保存在cookie里。
+		}else{
+			document.getElementById("welcome").innerHTML = "亲，登录失败！";
+		}
+	}
+}
+
+</script>
+</head>
+
+<body>
+
+用户名：<input type="text" id="userId" onblur="" /><br>
+密码：<input type="password" id="passId"/><br>
+<input type="button" value="登录" onclick="checkUserPass()"/>
+<span id="welcome"></span>
+	
+</body>
+
+</html>

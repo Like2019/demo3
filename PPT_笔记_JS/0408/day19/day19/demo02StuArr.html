@@ -1,0 +1,67 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>欢迎注册1604的网站</title>
+	
+	<script type="text/javascript" src="1604JQuery.js"></script>
+<script type="text/javascript">
+
+var xhr = null;
+function getAllStu(){
+	xhr = new XMLHttpRequest();
+	xhr.open("get","http://10.0.163.65:8080/web1604/getStudentArr.jsp",true);
+	xhr.onreadystatechange = show;
+	xhr.send(null);
+}
+
+function show(){
+	if(xhr.readyState==4 && xhr.status==200){
+		deal();
+	}
+}
+
+function deal(){
+//1、删除table里tr（除了标题行以外的其它行）
+		//得到tbody;
+		var tbody = document.getElementById("t").childNodes[0];
+		
+		while(tbody.childNodes.length>1){
+			tbody.removeChild(tbody.childNodes[1]);
+		}
+		
+		//2、显示新的数据
+		var stuArr =eval("("+xhr.responseText+")") ;
+		
+		for(var i=0;i<stuArr.length;i++){
+			var tr = document.createElement("tr");
+			var tdName = document.createElement("td");
+			var tdSex = document.createElement("td");
+			var tdAge = document.createElement("td");
+			
+			tdName.innerHTML = stuArr[i].name;
+			tdSex.innerHTML = stuArr[i].sex;
+			tdAge.innerHTML = stuArr[i].age;
+
+			tr.appendChild(tdName);
+			tr.appendChild(tdSex);
+			tr.appendChild(tdAge);
+			
+			tbody.appendChild(tr);
+		}
+}
+
+</script>
+</head>
+
+<body>
+<input type="button" value="测试" onclick="getAllStu()"/>
+<table id="t"><tr>
+		<td>姓名</td>
+		<td>性别</td>
+		<td>年龄</td>
+	</tr>
+</table>
+</body>
+
+</html>

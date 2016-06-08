@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	function openSubWin(){
+		//var num = 250;
+		var arr=[250,290,38];
+		var value = window.showModalDialog("subDialog.html",arr,"left=300px,top=250px,width=400px,height=300px,location=0");
+		alert("孩子说了："+value);
+	}
+	
+</script>
+
+<body>
+	<form name="f">
+		<input type="button" value="打开页面" onclick="openSubWin()"/>
+	</form>
+</body>
+</html>

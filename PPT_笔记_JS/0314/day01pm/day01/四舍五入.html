@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//需求：在文本框中输入一个浮点数(小数),通过代码，把该数四舍五入，并显示在另外一个文本框中；
+		function show(){
+			//1、得到第一个文本框的值
+			var a = document.f.num1.value;
+			//Math.round(78.266)
+			//2、把得到的值进行四舍五入
+			var result1 = Math.round(a);
+			//3、把四舍五入 的结果赋给第二个文本框
+			document.f.result.value = result1;
+		}
+		
+	</script>
+	<body>
+		<form name="f" >
+			<input name="num1" type="text"  />
+			<input type="button" value="显示四舍五入的结果" onclick="show()"/>
+			<input name="result" type="text" />
+		</form>
+	</body>
+	
+	
+
+</html>

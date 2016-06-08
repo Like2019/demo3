@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+	
+	function calcY(){
+		var i = 1;//i叫循环变量；
+		var sum = 0;//保存的是计算的结果，和；
+		while(i<=100){ //i<=100 叫循环条件
+			sum = sum+i;//sum = 0+1; sum = 1 + 2 +3+……+100
+			i++;//2; 3; 4 …… 101
+		}
+		document.write("1 + 2 +3+……+100="+sum);
+	}
+	
+	</script>
+	<body>
+		<form name="f">
+	
+		<input type="button" value="计算1到100之和" onclick="calcY()"/>
+		</form>
+	</body>
+	
+</html>

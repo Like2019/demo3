@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<style type="text/css">
+	.spanClass{
+		background-color:gray;
+	}
+	</style>
+	<script type="text/javascript" src="1604JQuery.js"></script>
+	<script type="text/javascript">
+		
+		var currentOrd =0;//当前图片的序号 3
+		var myInterval;//定时器；
+		
+		//改变界面上图片的路径（改变图片的内容）
+		function changeImg(){
+			currentOrd=currentOrd+1;
+			if(currentOrd>3){
+				currentOrd=1;
+			}
+			//把图片标签的路径进行了修改
+			$("#imgId").src= "images/mn0"+currentOrd+".jpg";
+			//清楚其它span的背景颜色
+			var spanArr = $("span");
+			for(var i=0;i<spanArr.length;i++){
+				spanArr[i].style.backgroundColor="gray";
+			}
+			//把当前span的背景颜色变成红色；
+			spanArr[currentOrd-1].style.backgroundColor="red";
+		}
+		
+		function startImg(){
+			//每隔1秒，调用函数changeImg();
+			myInterval = setInterval("changeImg()",500);//定时器；
+		}
+		
+		function showImage(ord){
+			currentOrd = ord;//改变当前图片时，要修改当前图片的序号；
+			switch(ord){
+				case 1:$("#imgId").src="images/mn01.jpg";break;
+				case 2:$("#imgId").src="images/mn02.jpg";break;
+				case 3:$("#imgId").src="images/mn03.jpg";break;
+				default:alert("这个你也搞出来！");
+			}
+		}
+			
+		function stopImg(){
+			clearInterval(myInterval);
+		}
+		
+	</script>
+<body onload="startImg()">
+	<form name="f">
+		<table>
+			<tr>
+				<td>
+					<img  id="imgId" style="width:350px;height:280px" src="images/mn01.jpg" onmouseover="stopImg()" onmouseout="startImg()"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="spanClass" onclick="showImage(1)" onmouseover="">&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+					<span class="spanClass"  onclick="showImage(2)">&nbsp;&nbsp;2&nbsp;&nbsp;</span>
+					<span class="spanClass"  onclick="showImage(3)">&nbsp;&nbsp;3&nbsp;&nbsp;</span>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

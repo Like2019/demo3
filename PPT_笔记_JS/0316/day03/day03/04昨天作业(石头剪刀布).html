@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+	//0：石头；1：剪刀；2：布
+	function calcY(){
+		//1、得到人出的拳
+		var user = parseInt(document.f.user.value);
+		//2、让机器出拳（随机数）
+		var computer = parseInt(Math.random()*10)%3;
+		
+		switch(computer){
+			case 0: alert("机器出的是石头");break;
+			case 1: alert("机器出的是剪刀");break;
+			case 2: alert("机器出的是布");break;
+			default:alert("机器坏了！");break;
+		}
+		
+		//3、判断谁赢
+		if(user==computer){
+			alert("平手！");
+		}else if((user=="0" && computer=="1") ||(user=="1" && computer=="2")||(user=="2" && computer=="0")){
+			alert("您赢！");
+		}else{
+			alert("您输！");
+		}
+	}
+		
+	</script>
+	<body>
+		<form name="f">
+		<input name="user" type="radio" value="0"/>石头
+		<input name="user" type="radio" value="1"/>剪刀
+		<input name="user" type="radio" value="2"/>布
+		<input type="button" value="出拳" onclick="calcY()"/>
+		
+		</form>
+	</body>
+	
+</html>

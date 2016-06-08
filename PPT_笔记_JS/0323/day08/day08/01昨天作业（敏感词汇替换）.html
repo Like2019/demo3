@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	function replaceMinGan(){
+		var txt = document.f.txt.value;
+		/*一个敏感词汇
+		var minGanStr = "nnd";
+		document.f.txt.value = txt.replace(minGanStr,"");
+		*/
+		//若干个敏感词汇
+		var minGanArr = ["nnd","tmd","sb"];
+		
+		for(var i=0;i<minGanArr.length;i++){
+			txt =  txt.replace(minGanArr[i],"");
+		}
+		document.f.txt.value = txt;
+	}
+
+</script>
+<body>
+	<form name="f">
+		<input type="text" name="txt" onblur="replaceMinGan()"/>
+		<input type="button" value="提交" onclick="replaceMinGan()"/>
+	</form>
+
+
+</body>
+</html>

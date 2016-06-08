@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>欢迎注册1604的网站</title>
+	
+<script type="text/javascript" src="AJAXFeng.js"></script>
+<script type="text/javascript">
+
+function getProvince(){
+	ajax1604("get","http://10.0.163.65:8080/web1604/county.jsp","showProvince","isSheng=1");
+}
+
+function showProvince(provinceArr){
+	var str="";
+	alert(provinceArr.length);
+	for(var i=0;i<provinceArr.length;i++){
+		str = str+ "<option value='"+provinceArr[i].sid+"'>"+provinceArr[i].sName+"</option>";
+	}
+	alert(str);
+	document.getElementById("province").innerHTML = str;
+}
+
+
+
+function getCity(){
+
+
+}
+
+function showCity(){
+
+
+}
+
+</script>
+</head>
+
+<body onload="getProvince()">
+	<select id="province" onchange="getCity()">
+		<option value="001">北京</option>
+		<option value="001">北京</option>
+		<option value="001">北京</option>
+		<option value="001">北京</option>
+	</select>省（直辖市）
+	<select>
+		<option value="1">海淀</option>
+		<option value="2">朝阳</option>
+	</select>市（区）
+</body>
+
+</html>

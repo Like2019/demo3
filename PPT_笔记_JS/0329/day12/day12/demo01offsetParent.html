@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+<style type="text/css">
+	#parent{
+		position:relative;
+		left:100px;
+		top:20px;
+	}
+</style>
+<script type="text/javascript" language="JavaScript">
+  function offset_init() {
+	  var pElement = document.getElementById("sonObj");
+	  parentObj = pElement.offsetParent;
+	  alert(parentObj.tagName);
+	  alert(parentObj.id);
+	  alert(pElement.parentNode.id);
+  }
+</script>
+</head>
+<body onload="offset_init()">
+	<div id="parent">
+		<div id="t">
+			<p id="sonObj">测试OffsetParent属性</p>
+		</div>
+	</div>
+</body>  
+</html>

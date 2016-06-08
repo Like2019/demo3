@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+
+	function test(){
+	    var myDate = new Date();
+		//设置（修改）当前日期对象的年份；
+	     //document.write(myDate.setFullYear(2014));
+		 //document.write(myDate.getFullYear())
+		 
+		var myDate = new Date();
+		var str = "";
+		str = str + myDate.getFullYear()+"年";
+		str = str + (myDate.getMonth()+1)+"月";
+		str = str + myDate.getDate()+"日";
+		str = str + myDate.getHours()+":";
+		str = str + myDate.getMinutes()+":";
+		str = str + myDate.getSeconds();
+		
+		document.f.clock.value = str;
+	}
+	
+	function startClock(){
+		setInterval("test()",1000);
+	}
+	
+</script>
+<body onload="startClock()">
+	<form name="f">
+		<input type="text" name="clock" style="width:500px"/>
+	</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+	
+		//求数组中所有元素的和；
+		function test(){
+			var array = [10,20,30,12,250,290,380,521,16];
+			/*解法一：
+			var max =0;
+			if(array[0]>array[1]){
+				max = array[0];
+			}else{
+				max = array[1];
+			}
+			for(var i=2;i<array.length;i++){
+				if(array[i]>max){
+					max = array[i];
+				}
+			}
+			*/
+			//解法二：
+			var max = array[0];//前一个数的最大数
+			for(var i=1;i<array.length;i++){
+				if(array[i]>max){
+					max = array[i];
+				}
+			}
+			alert(max);
+		}
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="测试" onclick="test()"/>
+		 </form>
+	</body>
+</html>

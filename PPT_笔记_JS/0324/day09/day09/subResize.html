@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	var count=0;
+	var myInterval;
+	function changeSize(){
+		count++;
+		window.resizeBy(5,5);
+		if(count>=100){
+			window.clearInterval(myInterval);
+		}
+	}
+	
+	function startSize(){
+		//定义了一个定时器对象；名字为：myInterval
+		myInterval = setInterval('changeSize()',50);
+	}
+</script>
+
+<body onload="startSize()">
+	
+</body>
+</html>

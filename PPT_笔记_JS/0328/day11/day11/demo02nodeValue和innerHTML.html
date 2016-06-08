@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+<script type="text/javascript">
+function nodeValueTest(){	//因为，文本也是节点，所以要用childNodes[0]先获得它的文本节点，然后把文本几点替换成<strong>这是粗体字吗</strong>
+	document.getElementById("layer").childNodes[0].nodeValue="<strong>这是粗体字吗</strong>";
+}
+function innerHTMLTest(){
+	//而innerHTML就是元素节点里的内容
+	document.getElementById("layer").innerHTML="<strong>这确实是粗体字</strong>";
+}
+</script>
+<body>
+
+<div id="layer" class="divClass1">hello div</div>
+<form name="f">
+	<input type="button" value="使用nodeValue改" onclick="nodeValueTest()" />
+	<input type="button" value="使用innerHTML改" onclick="innerHTMLTest()" />
+</form>
+
+</body>
+</html>

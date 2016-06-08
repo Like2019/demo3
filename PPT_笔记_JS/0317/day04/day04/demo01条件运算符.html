@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+		//1、任何表达式都有运算结果；
+		//2、运算符的优先级
+		//3、表达式1?表达式2:表达式3；
+
+		function calcY(){
+			//1、任何表达式都有运算结果；
+			var n;
+			n = 5;//赋值表达式;赋值表达式的运算结果就是赋值号右边的值；
+			alert(n=5);
+			
+			if(n=5){//非0即真；0为假；
+				alert("你能看到我吗");
+			}else{
+			
+			}
+			
+			//2、运算符的优先级：（先算谁，谁的优先级就高）
+			//建议大家用小括号区分优先级。
+			if((a>0 && b<2) || (c==2))
+			
+			//3、条件表达式：“表达式1?表达式2:表达式3”
+			//先计算表达式1，如果表达式1成立，执行表达式2，整个表达式的结果就是表达式2的结果；否则执行表达式3,整个表达式的结果就是表达式3的结果.
+			
+			var x = 10;
+			var y = 20;
+			
+			var max = x>y?x:y;
+			
+			if(x>y){
+				max = x;
+			}else{
+				max = y;
+			}
+			
+			
+		}
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

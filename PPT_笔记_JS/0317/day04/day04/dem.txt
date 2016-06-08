@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	  	
+		//任给正整数n,计算  1!+2!+3!+ …+n!
+
+		function calcY(){
+			/*法一
+			var sum=0;
+			var result = 1;
+			for(var j=1;j<=n;j++){
+				//1、先计算j的阶乘
+				result = 1;
+				for(var i=1;i<=j;i++){
+					result = result*i;
+				}
+				//2、把阶乘的结果进行累加；
+				sum = sum+result;
+			}
+			*/
+			//1！= 1         
+			//2! = 1*2       = 1!*2;
+			//3! = 1*2*3     = 2!*3;
+			//4! = 1*2*3*4   = 3!*4;
+			//5! = 1*2*3*4*5 = 4!*5;
+			
+			var sum=0;
+			var item = 1;
+			for(var j=1;j<=n;j++){//j=1  2  3  4 
+				//1、先计算j的阶乘
+				item = j*item;//1    2    6   24
+				//2、把阶乘的结果进行累加；
+				sum = sum+item;
+			}
+		}
+		
+	</script>
+	<body>
+		<form name="f">
+			<input type="text" name="num" />
+			<input type="button" value="打印" onclick="calcY()"/>
+		</form>
+	</body>
+	
+</html>

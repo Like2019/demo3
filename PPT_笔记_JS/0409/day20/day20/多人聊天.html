@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{font-size: 14px; padding:0; margin:0;}
+.main{
+	position: relative;
+	margin: 20px auto;
+	border: 1px solid steelblue;
+	width: 430px;
+	height: 400px;
+}
+.msgInput{
+	display: block;
+	width: 406px;
+	height: 60px;
+	margin: 10px auto;
+	
+}
+.sendbtn{
+	position: absolute;
+	width: 100px;
+	height: 29px;
+	bottom: 5px;
+	right: 10px;
+}
+.content{
+	list-style: none;
+	width: 410px;
+	height: 280px;
+	margin: 5px auto;
+	border: 1px dotted #D1D3D6;
+	overflow-y: scroll;
+}
+.msgContent{
+	width:auto;
+	max-width: 250px;
+	height: auto;
+	word-break: break-all;
+	margin: 5px;
+	padding: 3px;
+	border-radius: 5px;
+}
+
+.content .left{
+	float: left;
+	text-align: left;
+	background-color: lightgrey;
+}
+.content .right{
+	float: right;
+	text-align: right;
+	background-color: yellowgreen;
+}
+</style>
+
+<script type="text/javascript">
+
+var xhr = null;
+
+//给服务器发送客户端说得话。
+function sendStr(){
+	xhr = new XMLHttpRequest();
+	xhr.open("post","http://10.0.163.65:8080/web1604/chat.jsp",true);
+	xhr.setRequestHeader("Content-Type",
+			    "application/x-www-form-urlencoded"); 
+	xhr.onreadystatechange = fun;
+	var postStr = "isSend=1&name="+document.getElementById("nameId").value+"&content="+document.getElementById("msg_input").value;
+	xhr.send(postStr);
+}
+
+function fun(){
+	
+}
+
+//每隔1秒取一次数据（请求服务给客户端发送当前没有发送的聊天记录）
+function getData(){
+	xhr = new XMLHttpRequest();
+	xhr.open("get","http://10.0.163.65:8080/web1604/chat.jsp?isSend=0",true);
+	xhr.onreadystatechange = show;
+	xhr.send(null);
+}
+
+//json格式(返回的数据):
+/*
+[
+	{
+		"name":"张三",
+		"content":"您吃了吗？",
+	},
+	{
+		"name":"李四",
+		"content":"我吃了？",
+	}
+]
+*/
+
+
+function show(){
+	if(xhr.readyState==4 && xhr.status==200){
+		var sayArr = eval("("+xhr.responseText+")");
+		var ulObj = document.getElementById("content");
+		for(var i=0;i<sayArr.length;i++){
+			var liObj = document.createElement("li");
+			liObj.className = "msgContent left";
+			var sayText = document.createTextNode(sayArr[i].name+"说："+sayArr[i].content);
+			liObj.appendChild(sayText);
+			ulObj.appendChild(liObj);
+			var divObj = document.createElement("div");
+			divObj.style.clear = "both";
+			ulObj.appendChild(divObj);
+		}
+	}
+}
+	
+</script>
+
+</head>
+
+<body onload="setInterval('getData()',1000)">
+	<div id="main" class="main">
+		<ul id="content" class="content">
+			<li class="msgContent left">大家好：</li>
+			<div style="clear: both;"></div>
+			
+		</ul>
+		<textarea id="msg_input" class="msgInput"></textarea>
+		<input type="button" id="sendbtn" class="sendbtn" value="发送" onclick="sendStr()" />
+		姓名：<input type="text" id="nameId" />
+	</div>
+
+</body>
+</html>

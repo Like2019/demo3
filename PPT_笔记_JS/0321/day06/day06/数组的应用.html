@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	 <style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+	
+		//求数组中所有元素的和；
+		function test(){
+			//一次性定义了3个变量，并且分别赋值为10,20,30;
+			var array = [10,20,30];//一次性定义了3个变量，并且分别赋值为10,20,30; array是数组名，[] 照着写，
+				
+			var sum = 0;
+			for(var i=0;i<array.length;i++){
+				sum = sum+array[i];
+				
+			}
+			
+			var avag = sum/(array.length);
+			
+			alert("sum="+sum);
+			
+		}
+	</script>
+   
+	<body>
+		<form name="f">
+			<input type="button" value="测试" onclick="test()"/>
+		 </form>
+	</body>
+</html>

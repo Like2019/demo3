@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+	/*           外层循环变量的取值     内层循环的次数
+		*         i=1;                     1
+		**        i=2;                     2
+		***       i=3                      3
+		****
+		*****
+	*/
+	
+		function calcY(){
+			for(var i=1;i<=5;i++){
+				//alert("i="+i);//i=1  2
+				for(var j=1;j<=i;j++){
+					document.write("<input type='radio'/>");
+				}
+				document.write("<br>");
+			}
+		}
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<meta charset="utf-8" >
+		<script type="text/javascript" src="demo2.js"></script>
+		<script type="text/javascript">
+			//计算圆的面积
+			window.onload = function() {
+				document.getElementById("calc").onclick = function() {
+					//获取半径
+					var r = document.getElementById("r").value;
+					//创建个体对象
+					var c = new Circle(r);
+					var area = c.getArea();
+					document.getElementById("area").innerHTML = area;
+				}
+				
+				document.getElementById("calc").onclick = function() {
+					//获取半径
+					var r = document.getElementById("r").value;
+					var h = document.getElementById("h").value;
+					//创建圆
+					var circle = new Circle(r);
+					var cylinder = new Cylinder(circle,h);
+					var tj = cylinder.getTiji();
+					document.getElementById("tj").innerHTML = tj;
+				}
+				
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="r" id="r"/>
+		<input type="button" id="calc" value="计算面积" /><br>
+		面积：<span id="area"></span><br>
+		高：<input type="text" name="h" id="h"/>
+		<input type="button" id="calcyz" value="计算圆柱的体积" /><br>
+		体积：<span id="tj"></span><br>
+		
+		
+	</body>
+
+</html>

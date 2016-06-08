@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>昱</title>
+<style type="text/css">
+ul,li{margin:0;padding:0}
+#text{width:200px;height:30px;}
+#xuan{list-style:none;display:none;}
+#xuan li{width:200px;line-height:40px;}
+</style>
+</head>
+<script type="text/javascript">
+function get(){
+	document.getElementById("xuan").style.display="block";	
+}
+
+function text(obj){
+	document.getElementById("text").value=obj.childNodes[0].nodeValue;
+	document.getElementById("xuan").style.display="none";
+}
+var s;
+function changcolor(obj){
+	s=obj.style.backgroundColor;
+	obj.style.backgroundColor="pink";
+}
+function oldcolor(obj){
+	obj.style.backgroundColor=s;
+}
+function ce(){
+	document.getElementById("xuan").style.display="none";
+
+}
+
+function tingZhiMaoPao(event){
+	if(event&&event.stopPropagation){//非IE
+		event.stopPropagation();}
+	else{//IE
+		window.event.cancelBubble=true;
+	}
+}
+
+</script>
+
+<body  onclick="ce()">
+	<form>
+	<input type="text" id="text" onfocus="get()" onclick="tingZhiMaoPao(event)" />
+	<input id="d"	type="button" value="获取文字" onclick="ce()"/>
+	</form>
+<ul id="xuan" style="background-color:gray">
+	<li onclick="text(this)" onmouseover="changcolor(this)" onmouseout="oldcolor(this)">北京</li>
+	<li onclick="text(this)" onmouseover="changcolor(this)" onmouseout="oldcolor(this)">北京1</li>
+	<li onclick="text(this)" onmouseover="changcolor(this)" onmouseout="oldcolor(this)">北京2</li>
+	<li onclick="text(this)" onmouseover="changcolor(this)" onmouseout="oldcolor(this)">北京3</li>
+	<li onclick="text(this)" onmouseover="changcolor(this)" onmouseout="oldcolor(this)">北京4</li>
+</ul>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+	</head>
+	<script type="text/javascript">
+	//javascript完成的是逻辑，html完成的是界面展示；
+	/*           外层循环变量的取值  空格数      星号数
+		     *           i=1;           3           1=2*i-1
+		    ***          i=2;           2           3=2*i-1
+		   *****         i=3            1           5=2*i-1
+		  *******        i=4;           0           7=2*i-1
+		  
+		   *****         i=1            1          5 = 7-2*i
+			***          i=2            2          3 = 7-2*i
+			 *           i=3            3          1 = 7-2*i
+	*/
+		function calcY(){
+			//一、打印上半部分
+			for(var i=1;i<=4;i++){
+				//1、打印空格
+				for(var j=1;j<=4-i;j++){
+					document.write("　");
+				}
+				//2、打印星号
+				for(var m=1;m<=2*i-1;m++){
+					document.write("啊");
+				}
+				document.write("<br>");
+			}
+			
+			//二、打印下半部分
+			for(var i=1;i<=3;i++){
+				//1、打印空格
+				for(var j=1;j<=i;j++){
+					document.write("　");
+				}
+				//2、打印星号
+				for(var m=1;m<=7-2*i;m++){
+					document.write("啊");
+				}
+				document.write("<br>");
+			}
+			
+		}
+	</script>
+	<body>
+		<input type="button" value="打印" onclick="calcY()"/>
+	</body>
+	
+</html>

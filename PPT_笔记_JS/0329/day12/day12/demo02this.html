@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset = "utf-8"/>
+<style type="text/css">
+	#parent{
+		position:relative;
+		left:100px;
+		top:20px;
+		width:200px;
+		height:200px;
+		background-color:#0f0;
+	}
+	#t{
+		position:relative;
+		left:500px;
+		top:300px;
+		width:200px;
+		height:200px;
+		background-color:#f00;
+	}
+</style>
+<script type="text/javascript" language="JavaScript">
+  function clickWho(obj) {
+	//this代表当前标签对象，即哪个标签里调用的函数，this就是哪个标签。
+	//var tempObj = document.getElementById("parent");
+	alert(obj.id);
+	alert(obj.onclick);
+  }
+  
+  
+</script>
+</head>
+<body >
+	<div id="parent" onclick="clickWho(this)">
+	</div>
+	
+	<div id="t" onclick="clickWho(this)">
+	</div>
+</body>  
+</html>

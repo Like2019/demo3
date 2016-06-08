@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>哎呀</title>
+</head>
+<script type="text/javascript">
+	function test(){
+		//定义了一个Date对象，让Date对象的值为当前时间
+		var myDate = new Date();
+		//我想打印出：2016年3月23日 11：17:20
+		
+		/*
+		document.write(myDate.getFullYear()+"年");
+		document.write(myDate.getMonth()+1+"月");
+		document.write(myDate.getDate()+"日");
+		document.write(myDate.getHours()+":");
+		document.write(myDate.getMinutes()+":");
+		document.write(myDate.getSeconds());
+		*/
+		
+		myDate.setFullYear(2014);
+		
+		var str = "";
+		str = str + myDate.getFullYear()+"年";
+		str = str + (myDate.getMonth()+1)+"月";
+		str = str + myDate.getDate()+"日";
+		str = str + myDate.getHours()+":";
+		str = str + myDate.getMinutes()+":";
+		str = str + myDate.getSeconds();
+		
+		document.write(str);
+		
+	}
+
+</script>
+<body>
+	<form name="f">
+		<input type="button" value="测试" onclick="test()"/>
+	</form>
+
+
+</body>
+</html>
+</html>

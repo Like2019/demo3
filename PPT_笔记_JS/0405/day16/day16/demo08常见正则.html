@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<title>onscroll事件</title>
+<meta charset = "utf-8"/>
+</head>
+
+
+<script type="text/javascript">
+
+function test1(){
+
+	//var reg = /^[1-9]\d{5}$/;
+	//var reg = /^\w+@\w+(\.\w+)+$/;
+	//	7701037@qq.com.cn
+	
+	//手机号码
+	//var reg = /^1\d{10}$/;
+	//身份证号码：
+	var reg = /^[1-9]\d{16}(\d|x)$/;
+	var str = document.getElementById("mobilePhone").value;
+	alert(reg.test(str));
+	
+}
+
+
+</script>
+
+
+<body id="dianji">
+电话号码：<input type="text" id="mobilePhone" /><span id="phoneSpan"></span><br>
+身份证号码：<input type="text" id="sfz" /><span id="sfz"></span><br>
+<input type="button" value="test" onclick="test1()"/>
+</body>
+</html>
